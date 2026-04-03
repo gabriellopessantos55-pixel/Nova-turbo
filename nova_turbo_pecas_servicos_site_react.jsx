@@ -292,5 +292,32 @@ export default function NovaTurboSite() {
         main.jsx
         index.css
     'package'.json
+    {
+  "name"; "nova-turbo-site",
+  "private"; true,
+  "version"; "0.0.0",
+  "scripts"; {
+    "dev";"vite",
+    "build";"vite build"
+  }
+  "dependencies"; {
+    "react"; "^18.2.0",
+    "react-dom"; "^18.2.0"
+  }
+  "devDependencies"; {
+    "vite"; "^5.0.0"
+  }
+}
     vite.config.js
-    index.html
+    src/App.jsx
+src/main.jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)
+index.html
