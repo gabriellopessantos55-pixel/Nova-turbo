@@ -1,3 +1,11 @@
+nova-turbo-site/
+   <public/
+      >;Turbina.jpeg
+      src="/Turbina.jpeg"
+                alt="Turbo automotivo"
+                className="h-[420px] w-full rounded-3xl object-cover"
+    src/
+        App.jsx
 export default function NovaTurboSite() {
   const services = [
     {
@@ -103,7 +111,7 @@ export default function NovaTurboSite() {
           <div className="relative">
             <div className="rounded-[2rem] border border-zinc-800 bg-zinc-900 p-6 shadow-2xl shadow-orange-500/10">
               <img
-                src="/mnt/data/Turbina.jpeg"
+                src="/Turbina.jpeg"
                 alt="Turbo automotivo"
                 className="h-[420px] w-full rounded-3xl object-cover"
               />
@@ -280,3 +288,9 @@ export default function NovaTurboSite() {
     </div>
   )
 }
+
+        main.jsx
+        index.css
+    'package'.json
+    vite.config.js
+    index.html
