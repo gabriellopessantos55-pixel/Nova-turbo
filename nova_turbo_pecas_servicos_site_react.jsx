@@ -1,11 +1,11 @@
-nova-turbo-site/
-   <public/
-      >;Turbina.jpeg
-      src="/Turbina.jpeg"
-                alt="Turbo automotivo"
-                className="h-[420px] w-full rounded-3xl object-cover"
-    src/
-        App.jsx
+Nova-turbo/
+   package.json
+index.html
+vite.config.js
+public/
+   Turbina.jpeg
+src/ 
+     App.jsx
 export default function NovaTurboSite() {
   const services = [
     {
@@ -288,9 +288,44 @@ export default function NovaTurboSite() {
     </div>
   )
 }
+src/
+    main.jsx
+ import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
 
-        main.jsx
-        index.css
-    'package'.json
-    vite.config.js
-    index.html
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)
+package.json
+{
+  "name": "nova-turbo-site",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}
+index.html
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nova Turbo Peças e Serviços</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
