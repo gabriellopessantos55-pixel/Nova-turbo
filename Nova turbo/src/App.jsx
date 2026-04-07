@@ -1,9 +1,4 @@
-// Coloque a imagem "Turbina.jpeg" dentro da pasta public/
-// Estrutura recomendada:
-// public/Turbina.jpeg
-// src/App.jsx
-
-export default function NovaTurboSite() {
+export default function App() {
   const services = [
     {
       title: 'Turbinas Novas e Recondicionadas',
