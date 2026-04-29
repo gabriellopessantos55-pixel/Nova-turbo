@@ -214,9 +214,13 @@ export default function App() {
         <p className="label">HORÁRIO DE FUNCIONAMENTO</p>
         <h2>Estamos prontos para atender você</h2>
         <div className="hoursBox">
-          <p><strong>Segunda a Sexta:</strong> 08h às 18h</p>
-          <p><strong>Sábado:</strong> 08h às 13h</p>
-          <p><strong>Domingo:</strong> Fechado</p>
+          <p><strong>Segunda-feira:</strong> 08:00 - 17:00</p>
+          <p><strong>Terça-feira:</strong> 08:00 - 17:00</p>
+          <p><strong>Quarta-feira:</strong> 08:00 - 17:00</p>
+          <p><strong>Quinta-feira:</strong> 08:00 - 17:00</p>
+          <p><strong>Sexta-feira:</strong> 08:00 - 17:00</p>
+          <p><strong>Sábado:</strong> Fechada</p>
+          <p><strong>Domingo:</strong> Fechada</p>
         </div>
       </section>
 
