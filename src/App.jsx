@@ -42,6 +42,15 @@ export default function App() {
     { q: 'As peças têm garantia?', a: 'Sim. Trabalhamos com peças testadas e serviços com garantia conforme avaliação técnica.' },
   ]
 
+  const servicePages = [
+    { id: 'turbinas-nova-iguacu', title: 'Turbinas em Nova Iguaçu', text: 'Venda, manutenção, revisão e recondicionamento de turbinas automotivas em Nova Iguaçu para veículos leves, utilitários e linha diesel.' },
+    { id: 'freios-nova-iguacu', title: 'Freios em Nova Iguaçu', text: 'Manutenção de freios em Nova Iguaçu com revisão de componentes, troca de peças e atendimento técnico especializado.' },
+    { id: 'direcao-hidraulica-nova-iguacu', title: 'Direção Hidráulica em Nova Iguaçu', text: 'Reparo de direção hidráulica em Nova Iguaçu, incluindo caixas, bombas, mangueiras e sistemas hidráulicos automotivos.' },
+    { id: 'embreagem-nova-iguacu', title: 'Embreagem em Nova Iguaçu', text: 'Troca e manutenção de embreagem em Nova Iguaçu com avaliação técnica e peças de qualidade.' },
+    { id: 'cardans-nova-iguacu', title: 'Cardans em Nova Iguaçu', text: 'Balanceamento, recuperação e troca de componentes de cardans em Nova Iguaçu.' },
+    { id: 'compressores-nova-iguacu', title: 'Compressores em Nova Iguaçu', text: 'Diagnóstico, manutenção e peças para compressores automotivos em Nova Iguaçu e região.' },
+  ]
+
   useEffect(() => {
     document.title = 'Nova Turbo Peças e Serviços | Turbinas, Freios e Direção Hidráulica em Nova Iguaçu'
 
@@ -176,7 +185,7 @@ export default function App() {
       <section className="section gallerySection">
         <p className="label">GALERIA</p>
         <h2>Fotos reais da oficina e dos serviços</h2>
-        <p className="desc">Fotos reais dos nossos serviços.</p>
+        <p className="desc">Adicione fotos da oficina, peças, turbinas e serviços realizados para passar mais confiança ao cliente.</p>
         <div className="grid galleryGrid">
           {gallery.map((item) => (
             <article className="galleryCard" key={item.title}>
@@ -221,6 +230,32 @@ export default function App() {
           <p><strong>Segunda a Sexta:</strong> 08h às 18h</p>
           <p><strong>Sábado:</strong> 08h às 13h</p>
           <p><strong>Domingo:</strong> Fechado</p>
+        </div>
+      </section>
+
+      <section className="section seoLocal">
+        <p className="label">ATENDIMENTO LOCAL</p>
+        <h2>Peças e serviços automotivos em Nova Iguaçu - RJ</h2>
+        <p className="desc">
+          A Nova Turbo Peças e Serviços atende clientes em Nova Iguaçu, Comendador Soares,
+          Rodovia Presidente Dutra e região. Somos referência local em turbinas em Nova Iguaçu,
+          freios em Nova Iguaçu, direção hidráulica em Nova Iguaçu, embreagens, cardans,
+          compressores e peças automotivas para veículos leves e pesados.
+        </p>
+      </section>
+
+      <section className="section servicePagesSection">
+        <p className="label">SERVIÇOS POR CATEGORIA</p>
+        <h2>Páginas otimizadas para cada serviço</h2>
+        <p className="desc">Essas áreas ajudam o Google a entender melhor cada serviço oferecido pela empresa.</p>
+        <div className="grid servicePagesGrid">
+          {servicePages.map((page) => (
+            <article id={page.id} className="servicePageCard" key={page.id}>
+              <h3>{page.title}</h3>
+              <p>{page.text}</p>
+              <a href={whatsapp} target="_blank" rel="noreferrer" className="greenBtn small">Pedir orçamento</a>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -320,6 +355,12 @@ export default function App() {
         .faqList details p { color: #bfc3d6; font-size: 19px; line-height: 1.55; margin-top: 16px; }
         .hoursBox { margin-top: 36px; max-width: 620px; }
         .hoursBox p { color: #e7efe9; font-size: 22px; line-height: 1.8; }
+        .seoLocal { background: #08160c; border-top: 1px solid #1f3525; border-bottom: 1px solid #1f3525; max-width: 100%; padding-left: max(16px, calc((100vw - 1220px) / 2)); padding-right: max(16px, calc((100vw - 1220px) / 2)); }
+        .servicePagesGrid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .servicePageCard { background: #101c13; border: 1px solid #1f3525; border-radius: 28px; padding: 28px; transition: .3s ease; }
+        .servicePageCard:hover { transform: translateY(-8px); border-color: rgba(66,179,94,.45); box-shadow: 0 22px 50px rgba(66,179,94,.08); }
+        .servicePageCard h3 { color: #fff; font-size: 28px; margin-bottom: 18px; }
+        .servicePageCard p { color: #bfc3d6; font-size: 19px; line-height: 1.65; }
         .contact { display: grid; grid-template-columns: 1fr 420px; gap: 50px; background: #101c13; max-width: 100%; padding-left: max(16px, calc((100vw - 1220px) / 2)); padding-right: max(16px, calc((100vw - 1220px) / 2)); }
         .contactLine { font-size: 24px; margin-top: 30px; line-height: 1.45; }
         .form { background: #06110a; border: 1px solid #1f3525; border-radius: 32px; padding: 28px; display: flex; flex-direction: column; gap: 16px; }
