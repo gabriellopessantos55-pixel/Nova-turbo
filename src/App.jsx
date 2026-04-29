@@ -190,7 +190,6 @@ export default function App() {
       <section className="section gallerySection">
         <p className="label">GALERIA</p>
         <h2>Fotos reais da oficina e dos serviços</h2>
-        <p className="desc">Adicione fotos da oficina, peças, turbinas e serviços realizados para passar mais confiança ao cliente.</p>
         <div className="grid galleryGrid">
           {gallery.map((item) => (
             <article className="galleryCard" key={item.title}>
@@ -239,6 +238,11 @@ export default function App() {
         <p className="label">QUEM SOMOS</p>
         <h2>Tradição e qualidade em peças automotivas</h2>
         <p className="desc">A Nova Turbo Peças e Serviços atua desde 2008 oferecendo atendimento rápido, produtos de qualidade e soluções para veículos leves e pesados.</p>
+        <div className="aboutHighlights">
+          <div className="aboutHighlight">⚙️ Turbinas Novas e Recondicionadas</div>
+          <div className="aboutHighlight">🔧 Serviço com Troca de Reparo e Troca do Conjunto Central</div>
+          <div className="aboutHighlight">🛠️ Diagnóstico especializado em Motores Turbo</div>
+        </div>
       </section>
 
       <section id="contato" className="contact">
@@ -301,7 +305,7 @@ export default function App() {
             <h4>Contato</h4>
             <p>✉️ vendasglobal122@gmail.com</p>
             <p>📞 (21) 97042-2836</p>
-            <p>📍 Rod. Pres. Dutra - Comendador Soares, Nova Iguaçu - RJ</p>
+            <p>📍 Pres. Dutra, 21190 - Comendador Soares, Nova Iguaçu - RJ, 26280-520, Brasil</p>
             <a href={whatsapp} target="_blank" rel="noreferrer" className="footerWhats">Falar no WhatsApp</a>
           </div>
         </div>
@@ -385,6 +389,8 @@ export default function App() {
         .hoursBox { margin-top: 36px; max-width: 620px; }
         .hoursBox p { color: #e7efe9; font-size: 22px; line-height: 1.8; }
         .seoLocal { background: #08160c; border-top: 1px solid #1f3525; border-bottom: 1px solid #1f3525; max-width: 100%; padding-left: max(16px, calc((100vw - 1220px) / 2)); padding-right: max(16px, calc((100vw - 1220px) / 2)); }
+        .aboutHighlights { display: grid; gap: 14px; margin-top: 28px; max-width: 860px; }
+        .aboutHighlight { background: #101c13; border: 1px solid #294933; color: #e7efe9; padding: 16px 18px; border-radius: 18px; font-size: 18px; font-weight: 800; }
         .contact { display: grid; grid-template-columns: 1fr 420px; gap: 50px; background: #101c13; max-width: 100%; padding-left: max(16px, calc((100vw - 1220px) / 2)); padding-right: max(16px, calc((100vw - 1220px) / 2)); }
         @media (max-width: 900px) {
           .footerGrid { grid-template-columns: 1fr; }
