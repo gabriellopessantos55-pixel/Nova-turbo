@@ -42,15 +42,6 @@ export default function App() {
     { q: 'As peças têm garantia?', a: 'Sim. Trabalhamos com peças testadas e serviços com garantia conforme avaliação técnica.' },
   ]
 
-  const servicePages = [
-    { id: 'turbinas-nova-iguacu', title: 'Turbinas em Nova Iguaçu', text: 'Venda, manutenção, revisão e recondicionamento de turbinas automotivas em Nova Iguaçu para veículos leves, utilitários e linha diesel.' },
-    { id: 'freios-nova-iguacu', title: 'Freios em Nova Iguaçu', text: 'Manutenção de freios em Nova Iguaçu com revisão de componentes, troca de peças e atendimento técnico especializado.' },
-    { id: 'direcao-hidraulica-nova-iguacu', title: 'Direção Hidráulica em Nova Iguaçu', text: 'Reparo de direção hidráulica em Nova Iguaçu, incluindo caixas, bombas, mangueiras e sistemas hidráulicos automotivos.' },
-    { id: 'embreagem-nova-iguacu', title: 'Embreagem em Nova Iguaçu', text: 'Troca e manutenção de embreagem em Nova Iguaçu com avaliação técnica e peças de qualidade.' },
-    { id: 'cardans-nova-iguacu', title: 'Cardans em Nova Iguaçu', text: 'Balanceamento, recuperação e troca de componentes de cardans em Nova Iguaçu.' },
-    { id: 'compressores-nova-iguacu', title: 'Compressores em Nova Iguaçu', text: 'Diagnóstico, manutenção e peças para compressores automotivos em Nova Iguaçu e região.' },
-  ]
-
   useEffect(() => {
     document.title = 'Nova Turbo Peças e Serviços | Turbinas, Freios e Direção Hidráulica em Nova Iguaçu'
 
@@ -153,6 +144,33 @@ export default function App() {
         </div>
       </section>
 
+      <section className="section categoriesSection">
+        <p className="label">CATEGORIAS</p>
+        <h2>Catálogo por categorias</h2>
+        <p className="desc">Encontre rapidamente as peças e serviços mais procurados da Nova Turbo.</p>
+        <div className="categoriesGrid">
+          <a href="#servicos" className="categoryChip">⚙️ Turbinas</a>
+          <a href="#servicos" className="categoryChip">🛑 Freios</a>
+          <a href="#servicos" className="categoryChip">🚗 Direção Hidráulica</a>
+          <a href="#servicos" className="categoryChip">🔧 Embreagens</a>
+          <a href="#servicos" className="categoryChip">🔩 Cardans</a>
+          <a href="#servicos" className="categoryChip">🛠️ Compressores</a>
+          <a href="#produtos" className="categoryChip">🚙 Linha Leve</a>
+          <a href="#produtos" className="categoryChip">🚛 Linha Pesada</a>
+        </div>
+      </section>
+
+      <section className="section sealsSection">
+        <p className="label">QUALIDADE E GARANTIA</p>
+        <h2>Atendimento com confiança</h2>
+        <div className="grid sealsGrid">
+          <div className="sealCard"><strong>🛡️</strong><span>Garantia em serviços</span></div>
+          <div className="sealCard"><strong>✅</strong><span>Peças testadas</span></div>
+          <div className="sealCard"><strong>⚡</strong><span>Orçamento rápido</span></div>
+          <div className="sealCard"><strong>💬</strong><span>Suporte via WhatsApp</span></div>
+        </div>
+      </section>
+
       <section id="produtos" className="section productsSection">
         <div className="sectionTop">
           <div>
@@ -244,21 +262,6 @@ export default function App() {
         </p>
       </section>
 
-      <section className="section servicePagesSection">
-        <p className="label">SERVIÇOS POR CATEGORIA</p>
-        <h2>Páginas otimizadas para cada serviço</h2>
-        <p className="desc">Essas áreas ajudam o Google a entender melhor cada serviço oferecido pela empresa.</p>
-        <div className="grid servicePagesGrid">
-          {servicePages.map((page) => (
-            <article id={page.id} className="servicePageCard" key={page.id}>
-              <h3>{page.title}</h3>
-              <p>{page.text}</p>
-              <a href={whatsapp} target="_blank" rel="noreferrer" className="greenBtn small">Pedir orçamento</a>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <section id="sobre" className="section about">
         <p className="label">QUEM SOMOS</p>
         <h2>Tradição e qualidade em peças automotivas</h2>
@@ -284,6 +287,16 @@ export default function App() {
 
       <section className="mapBox">
         <iframe src="https://www.google.com/maps?q=Rod.+Pres.+Dutra,+Comendador+Soares,+Nova+Iguaçu+-+RJ,+26280-490&output=embed" width="100%" height="330" style={{ border: 0 }} loading="lazy" title="Mapa Nova Turbo" />
+        <div className="mapActions">
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Rod.+Pres.+Dutra,+Comendador+Soares,+Nova+Iguaçu+-+RJ,+26280-490"
+            target="_blank"
+            rel="noreferrer"
+            className="greenBtn"
+          >
+            Como chegar
+          </a>
+        </div>
       </section>
 
       <a className="whatsapp" href={whatsapp} target="_blank" rel="noreferrer">💬</a>
@@ -338,6 +351,15 @@ export default function App() {
         .sectionTop { display: flex; justify-content: space-between; gap: 30px; align-items: flex-start; }
         .catalogBtn { border: 1px solid #294933; border-radius: 24px; padding: 24px 32px; font-size: 24px; font-weight: 800; }
         .productsGrid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .categoriesGrid { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 40px; }
+        .categoryChip { background: #101c13; border: 1px solid #294933; color: #d9ffe1; padding: 16px 22px; border-radius: 999px; font-weight: 900; transition: .25s ease; }
+        .categoryChip:hover { background: #42b35e; color: #000; transform: translateY(-3px); }
+        .sealsSection { background: #08160c; border-top: 1px solid #1f3525; border-bottom: 1px solid #1f3525; max-width: 100%; padding-left: max(16px, calc((100vw - 1220px) / 2)); padding-right: max(16px, calc((100vw - 1220px) / 2)); }
+        .sealsGrid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+        .sealCard { background: #101c13; border: 1px solid #1f3525; border-radius: 28px; padding: 26px; text-align: center; transition: .3s ease; }
+        .sealCard:hover { transform: translateY(-6px); border-color: rgba(66,179,94,.45); box-shadow: 0 22px 50px rgba(66,179,94,.08); }
+        .sealCard strong { display: block; font-size: 42px; margin-bottom: 14px; }
+        .sealCard span { color: #e7efe9; font-size: 20px; font-weight: 800; }
         .productCard { background: #06110a; border: 1px solid #1f3525; border-radius: 34px; padding: 30px; }
         .productIcon { height: 280px; background: #101c13; border-radius: 24px; display: flex; align-items: center; justify-content: center; margin-bottom: 32px; overflow: hidden; }
         .productCard span { color: #7de693; background: rgba(66,179,94,.12); border-radius: 999px; padding: 9px 18px; display: inline-block; font-size: 18px; font-weight: 900; margin-bottom: 28px; }
@@ -356,17 +378,13 @@ export default function App() {
         .hoursBox { margin-top: 36px; max-width: 620px; }
         .hoursBox p { color: #e7efe9; font-size: 22px; line-height: 1.8; }
         .seoLocal { background: #08160c; border-top: 1px solid #1f3525; border-bottom: 1px solid #1f3525; max-width: 100%; padding-left: max(16px, calc((100vw - 1220px) / 2)); padding-right: max(16px, calc((100vw - 1220px) / 2)); }
-        .servicePagesGrid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-        .servicePageCard { background: #101c13; border: 1px solid #1f3525; border-radius: 28px; padding: 28px; transition: .3s ease; }
-        .servicePageCard:hover { transform: translateY(-8px); border-color: rgba(66,179,94,.45); box-shadow: 0 22px 50px rgba(66,179,94,.08); }
-        .servicePageCard h3 { color: #fff; font-size: 28px; margin-bottom: 18px; }
-        .servicePageCard p { color: #bfc3d6; font-size: 19px; line-height: 1.65; }
         .contact { display: grid; grid-template-columns: 1fr 420px; gap: 50px; background: #101c13; max-width: 100%; padding-left: max(16px, calc((100vw - 1220px) / 2)); padding-right: max(16px, calc((100vw - 1220px) / 2)); }
         .contactLine { font-size: 24px; margin-top: 30px; line-height: 1.45; }
         .form { background: #06110a; border: 1px solid #1f3525; border-radius: 32px; padding: 28px; display: flex; flex-direction: column; gap: 16px; }
         .form input, .form textarea { width: 100%; padding: 17px; border-radius: 16px; border: 1px solid #294933; background: #0b1c10; color: #fff; font-size: 16px; outline: none; }
         .form button { background: #42b35e; color: #000; border: none; border-radius: 18px; padding: 17px; font-weight: 900; font-size: 16px; cursor: pointer; }
         .mapBox iframe { border-radius: 28px; overflow: hidden; }
+        .mapActions { margin-top: 22px; display: flex; justify-content: flex-start; }
         .whatsapp { position: fixed; right: 22px; bottom: 22px; width: 58px; height: 58px; border-radius: 50%; background: #22c55e; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 30; box-shadow: 0 18px 40px rgba(0,0,0,.3); }
         footer { background: #050b07; border-top: 1px solid #1f3525; color: #9ca3af; text-align: center; padding: 30px 16px; }
         @media (max-width: 900px) {
