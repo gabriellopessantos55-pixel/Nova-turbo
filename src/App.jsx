@@ -1,4 +1,73 @@
+import { useEffect, useState } from 'react'
+
 export default function App() {
+  const [form, setForm] = useState({ nome: '', telefone: '', servico: '' })
+
+  useEffect(() => {
+    document.title = 'Nova Turbo Peças e Serviços | Turbinas, Freios e Direção Hidráulica em Nova Iguaçu'
+
+    let favicon = document.querySelector('link[rel="icon"]')
+    if (!favicon) {
+      favicon = document.createElement('link')
+      favicon.setAttribute('rel', 'icon')
+      document.head.appendChild(favicon)
+    }
+    favicon.setAttribute('href', '/logo.png')
+
+    const description = 'Nova Turbo Peças e Serviços em Nova Iguaçu RJ. Especialistas em turbinas, freios, direção hidráulica, embreagens, cardans e compressores. Solicite orçamento pelo WhatsApp.'
+    let metaDescription = document.querySelector('meta[name="description"]')
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta')
+      metaDescription.setAttribute('name', 'description')
+      document.head.appendChild(metaDescription)
+    }
+    metaDescription.setAttribute('content', description)
+
+    let keywords = document.querySelector('meta[name="keywords"]')
+    if (!keywords) {
+      keywords = document.createElement('meta')
+      keywords.setAttribute('name', 'keywords')
+      document.head.appendChild(keywords)
+    }
+    keywords.setAttribute('content', 'Nova Turbo, turbinas Nova Iguaçu, peças automotivas, freios, direção hidráulica, embreagem, cardans, compressores, Rodovia Presidente Dutra')
+
+    let schema = document.querySelector('#business-schema')
+    if (!schema) {
+      schema = document.createElement('script')
+      schema.id = 'business-schema'
+      schema.type = 'application/ld+json'
+      document.head.appendChild(schema)
+    }
+    schema.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'AutoPartsStore',
+      name: 'Nova Turbo Peças e Serviços',
+      foundingDate: '2008',
+      telephone: '+55 21 97042-2836',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Rod. Pres. Dutra - Comendador Soares',
+        addressLocality: 'Nova Iguaçu',
+        addressRegion: 'RJ',
+        postalCode: '26280-490',
+        addressCountry: 'BR'
+      },
+      areaServed: 'Nova Iguaçu, RJ',
+      serviceType: ['Turbinas automotivas', 'Freios', 'Direção hidráulica', 'Embreagem', 'Cardans', 'Compressores']
+    })
+  }, [])
+
+  function handleChange(event) {
+    const { name, value } = event.target
+    setForm((prev) => ({ ...prev, [name]: value }))
+  }
+
+  function enviarWhatsApp(event) {
+    event.preventDefault()
+
+    const mensagem = `Olá, vim pelo site da Nova Turbo e quero solicitar um orçamento.%0A%0ANome: ${form.nome}%0ATelefone: ${form.telefone}%0AServiço desejado: ${form.servico}`
+    window.open(`https://wa.me/5521970422836?text=${mensagem}`, '_blank')
+  }
   const whatsapp = 'https://wa.me/5521970422836'
 
   const services = [
@@ -21,8 +90,13 @@ export default function App() {
     <div className="site">
       <header className="header">
         <div className="brand">
-          <h1>NOVA TURBO</h1>
-          <p>Peças e Serviços</p>
+          <div className="logoWrap">
+            <img src="/logo.png" alt="Logo Nova Turbo Peças e Serviços" />
+          </div>
+          <div className="brandText">
+            <h1>NOVA TURBO</h1>
+            <p>Peças e Serviços</p>
+          </div>
         </div>
 
         <nav>
@@ -118,11 +192,30 @@ export default function App() {
           <p className="contactLine">📍 Rod. Pres. Dutra - Comendador Soares, Nova Iguaçu - RJ, 26280-490</p>
         </div>
 
-        <form className="form">
-          <input placeholder="Seu nome" />
-          <input placeholder="Telefone" />
-          <textarea placeholder="Descreva o serviço desejado" rows="5" />
-          <button type="button">Enviar orçamento</button>
+        <form className="form" onSubmit={enviarWhatsApp}>
+          <input
+            name="nome"
+            value={form.nome}
+            onChange={handleChange}
+            placeholder="Seu nome"
+            required
+          />
+          <input
+            name="telefone"
+            value={form.telefone}
+            onChange={handleChange}
+            placeholder="Seu telefone"
+            required
+          />
+          <textarea
+            name="servico"
+            value={form.servico}
+            onChange={handleChange}
+            placeholder="Descreva o serviço desejado"
+            rows="5"
+            required
+          />
+          <button type="submit">Enviar orçamento pelo WhatsApp</button>
         </form>
       </section>
 
@@ -147,12 +240,19 @@ export default function App() {
         body { overflow-x: hidden; }
         a { color: inherit; text-decoration: none; }
         .site { min-height: 100vh; background: #08090b; color: #fff; font-family: Arial, Helvetica, sans-serif; overflow-x: hidden; }
-        .header { height: 135px; display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 0 16px; background: #08090b; border-bottom: 1px solid #252525; position: sticky; top: 0; z-index: 20; }
+        .header { min-height: 120px; display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 14px 24px; background: rgba(8, 9, 11, .96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.08); position: sticky; top: 0; z-index: 20; box-shadow: 0 12px 35px rgba(0,0,0,.28); }
+        .brand { display: flex; align-items: center; gap: 16px; min-width: 260px; }
+        .logoWrap { width: 92px; height: 92px; border-radius: 50%; padding: 5px; background: linear-gradient(135deg, #ff6a00, #ffffff22, #0b0b0b); box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 14px 35px rgba(255,106,0,.18); flex-shrink: 0; }
+        .brand img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: center; background: #fff; display: block; }
+        .brandText { display: flex; flex-direction: column; justify-content: center; }
         .brand h1 { color: #ff6a00; font-size: 36px; letter-spacing: 2px; font-weight: 900; }
-        .brand p { color: #aaa; font-size: 16px; margin-top: 5px; }
-        nav { display: flex; align-items: center; gap: 46px; font-size: 20px; font-weight: 700; }
+        .brand p { color: #c8c8c8; font-size: 16px; margin-top: 5px; letter-spacing: .6px; }
+        nav { display: flex; align-items: center; gap: 42px; font-size: 20px; font-weight: 800; }
+        nav a { position: relative; transition: .25s ease; }
+        nav a::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 0; height: 3px; background: #ff6a00; border-radius: 999px; transition: .25s ease; }
         nav a:hover { color: #ff6a00; }
-        .quoteBtn, .orangeBtn { background: #ff6a00; color: #000; font-weight: 800; padding: 18px 30px; border-radius: 24px; box-shadow: 0 12px 30px rgba(255,106,0,.25); display: inline-block; }
+        nav a:hover::after { width: 100%; }
+        .quoteBtn, .orangeBtn { background: linear-gradient(135deg, #ff6a00, #ff8a1f); color: #000; font-weight: 900; padding: 18px 30px; border-radius: 999px; box-shadow: 0 12px 30px rgba(255,106,0,.28); display: inline-block; transition: .25s ease; }
         .quoteBtn:hover, .orangeBtn:hover { background: #ff8a1f; transform: translateY(-2px); }
         .hero { min-height: 650px; display: flex; align-items: center; padding: 70px 16px; background: radial-gradient(circle at right, rgba(255,106,0,.22), transparent 38%), linear-gradient(90deg, #08090b 0%, #120b09 50%, #3a1707 100%); }
         .heroText { max-width: 920px; }
@@ -197,7 +297,9 @@ export default function App() {
         .whatsapp { position: fixed; right: 22px; bottom: 22px; width: 58px; height: 58px; border-radius: 50%; background: #22c55e; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 30; box-shadow: 0 18px 40px rgba(0,0,0,.3); }
         footer { background: #050607; border-top: 1px solid #282b32; color: #9ca3af; text-align: center; padding: 30px 16px; }
         @media (max-width: 900px) {
-          .header { height: auto; flex-wrap: wrap; justify-content: center; text-align: center; padding: 18px 16px; }
+          .header { min-height: auto; flex-wrap: wrap; justify-content: center; text-align: center; padding: 18px 16px; }
+          .brand { justify-content: center; min-width: auto; width: 100%; }
+          .logoWrap { width: 82px; height: 82px; }
           nav { order: 3; width: 100%; justify-content: center; flex-wrap: wrap; gap: 18px; font-size: 16px; }
           .quoteBtn { padding: 14px 20px; }
           .stats { grid-template-columns: 1fr; margin-top: 0; border-radius: 0; }
