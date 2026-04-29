@@ -176,7 +176,7 @@ export default function App() {
       <section className="section gallerySection">
         <p className="label">GALERIA</p>
         <h2>Fotos reais da oficina e dos serviços</h2>
-        <p className="desc">Adicione fotos da oficina, peças, turbinas e serviços realizados para passar mais confiança ao cliente.</p>
+        <p className="desc">Fotos reais dos nossos serviços.</p>
         <div className="grid galleryGrid">
           {gallery.map((item) => (
             <article className="galleryCard" key={item.title}>
