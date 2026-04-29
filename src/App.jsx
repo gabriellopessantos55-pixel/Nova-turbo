@@ -144,22 +144,6 @@ export default function App() {
         </div>
       </section>
 
-      <section className="section categoriesSection">
-        <p className="label">CATEGORIAS</p>
-        <h2>Catálogo por categorias</h2>
-        <p className="desc">Encontre rapidamente as peças e serviços mais procurados da Nova Turbo.</p>
-        <div className="categoriesGrid">
-          <a href="#servicos" className="categoryChip">⚙️ Turbinas</a>
-          <a href="#servicos" className="categoryChip">🛑 Freios</a>
-          <a href="#servicos" className="categoryChip">🚗 Direção Hidráulica</a>
-          <a href="#servicos" className="categoryChip">🔧 Embreagens</a>
-          <a href="#servicos" className="categoryChip">🔩 Cardans</a>
-          <a href="#servicos" className="categoryChip">🛠️ Compressores</a>
-          <a href="#produtos" className="categoryChip">🚙 Linha Leve</a>
-          <a href="#produtos" className="categoryChip">🚛 Linha Pesada</a>
-        </div>
-      </section>
-
       <section className="section sealsSection">
         <p className="label">QUALIDADE E GARANTIA</p>
         <h2>Atendimento com confiança</h2>
@@ -209,20 +193,6 @@ export default function App() {
             <article className="galleryCard" key={item.title}>
               <img src={item.img} alt={item.title} />
               <h3>{item.title}</h3>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section reviewsSection">
-        <p className="label">AVALIAÇÕES</p>
-        <h2>O que nossos clientes dizem</h2>
-        <div className="grid reviewsGrid">
-          {reviews.map((review) => (
-            <article className="reviewCard" key={review.name}>
-              <div className="stars">★★★★★</div>
-              <p>“{review.text}”</p>
-              <strong>{review.name}</strong>
             </article>
           ))}
         </div>
@@ -351,9 +321,6 @@ export default function App() {
         .sectionTop { display: flex; justify-content: space-between; gap: 30px; align-items: flex-start; }
         .catalogBtn { border: 1px solid #294933; border-radius: 24px; padding: 24px 32px; font-size: 24px; font-weight: 800; }
         .productsGrid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-        .categoriesGrid { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 40px; }
-        .categoryChip { background: #101c13; border: 1px solid #294933; color: #d9ffe1; padding: 16px 22px; border-radius: 999px; font-weight: 900; transition: .25s ease; }
-        .categoryChip:hover { background: #42b35e; color: #000; transform: translateY(-3px); }
         .sealsSection { background: #08160c; border-top: 1px solid #1f3525; border-bottom: 1px solid #1f3525; max-width: 100%; padding-left: max(16px, calc((100vw - 1220px) / 2)); padding-right: max(16px, calc((100vw - 1220px) / 2)); }
         .sealsGrid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
         .sealCard { background: #101c13; border: 1px solid #1f3525; border-radius: 28px; padding: 26px; text-align: center; transition: .3s ease; }
