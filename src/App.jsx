@@ -270,7 +270,41 @@ export default function App() {
       </section>
 
       <a className="whatsapp" href={whatsapp} target="_blank" rel="noreferrer">💬</a>
-      <footer>Nova Turbo Peças e Serviços • Empresa fundada em 2008</footer>
+      <footer className="footerPro">
+        <div className="footerGrid">
+          <div className="footerBrand">
+            <div className="footerLogoWrap">
+              <img src="/logo.png" alt="Logo Nova Turbo Peças e Serviços" />
+            </div>
+            <div>
+              <h3>NOVA TURBO</h3>
+              <p>Peças e Serviços</p>
+              <span>Empresa fundada em 2008</span>
+            </div>
+          </div>
+
+          <div className="footerCol">
+            <h4>Links Rápidos</h4>
+            <a href="#inicio">Início</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#produtos">Produtos</a>
+            <a href="#sobre">Quem Somos</a>
+            <a href="#contato">Contato</a>
+          </div>
+
+          <div className="footerCol">
+            <h4>Contato</h4>
+            <p>✉️ vendasglobal122@gmail.com</p>
+            <p>📞 (21) 97042-2836</p>
+            <p>📍 Rod. Pres. Dutra - Comendador Soares, Nova Iguaçu - RJ</p>
+            <a href={whatsapp} target="_blank" rel="noreferrer" className="footerWhats">Falar no WhatsApp</a>
+          </div>
+        </div>
+
+        <div className="footerBottom">
+          <p>© {new Date().getFullYear()} Nova Turbo Peças e Serviços. Todos os direitos reservados.</p>
+        </div>
+      </footer>
 
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -346,6 +380,9 @@ export default function App() {
         .hoursBox p { color: #e7efe9; font-size: 22px; line-height: 1.8; }
         .seoLocal { background: #08160c; border-top: 1px solid #1f3525; border-bottom: 1px solid #1f3525; max-width: 100%; padding-left: max(16px, calc((100vw - 1220px) / 2)); padding-right: max(16px, calc((100vw - 1220px) / 2)); }
         .contact { display: grid; grid-template-columns: 1fr 420px; gap: 50px; background: #101c13; max-width: 100%; padding-left: max(16px, calc((100vw - 1220px) / 2)); padding-right: max(16px, calc((100vw - 1220px) / 2)); }
+        @media (max-width: 900px) {
+          .footerGrid { grid-template-columns: 1fr; }
+        }
         .contactLine { font-size: 24px; margin-top: 30px; line-height: 1.45; }
         .form { background: #06110a; border: 1px solid #1f3525; border-radius: 32px; padding: 28px; display: flex; flex-direction: column; gap: 16px; }
         .form input, .form textarea { width: 100%; padding: 17px; border-radius: 16px; border: 1px solid #294933; background: #0b1c10; color: #fff; font-size: 16px; outline: none; }
@@ -353,7 +390,21 @@ export default function App() {
         .mapBox iframe { border-radius: 28px; overflow: hidden; }
         .mapActions { margin-top: 22px; display: flex; justify-content: flex-start; }
         .whatsapp { position: fixed; right: 22px; bottom: 22px; width: 58px; height: 58px; border-radius: 50%; background: #22c55e; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 30; box-shadow: 0 18px 40px rgba(0,0,0,.3); }
-        footer { background: #050b07; border-top: 1px solid #1f3525; color: #9ca3af; text-align: center; padding: 30px 16px; }
+        footer { background: #050b07; border-top: 1px solid #1f3525; color: #9ca3af; }
+        .footerPro { padding: 0; }
+        .footerGrid { max-width: 1220px; margin: 0 auto; padding: 56px 16px 34px; display: grid; grid-template-columns: 1.2fr .8fr 1fr; gap: 36px; }
+        .footerBrand { display: flex; align-items: flex-start; gap: 18px; }
+        .footerLogoWrap { width: 82px; height: 82px; border-radius: 50%; padding: 4px; background: linear-gradient(135deg, #42b35e, #ffffff22, #0b0b0b); flex-shrink: 0; }
+        .footerLogoWrap img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: #fff; display: block; }
+        .footerBrand h3 { color: #42b35e; font-size: 28px; font-weight: 900; letter-spacing: 1px; }
+        .footerBrand p { color: #e5e7eb; margin-top: 6px; font-size: 18px; }
+        .footerBrand span { display: block; margin-top: 10px; color: #9ca3af; font-size: 15px; }
+        .footerCol h4 { color: #fff; font-size: 20px; margin-bottom: 18px; }
+        .footerCol { display: flex; flex-direction: column; gap: 12px; }
+        .footerCol a, .footerCol p { color: #c7d2d9; font-size: 16px; line-height: 1.6; }
+        .footerCol a:hover { color: #7de693; }
+        .footerWhats { margin-top: 10px; display: inline-flex; align-items: center; justify-content: center; width: fit-content; background: linear-gradient(135deg, #42b35e, #67d982); color: #000 !important; padding: 12px 18px; border-radius: 999px; font-weight: 900; }
+        .footerBottom { border-top: 1px solid #1f3525; padding: 18px 16px 24px; text-align: center; color: #8b949e; font-size: 14px; }
         @media (max-width: 900px) {
           .header { min-height: auto; flex-wrap: wrap; justify-content: center; text-align: center; padding: 18px 16px; }
           .brand { justify-content: center; min-width: auto; width: 100%; }
