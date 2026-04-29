@@ -87,6 +87,9 @@ export default function App() {
           </div>
         </div>
 
+        <input type="checkbox" id="menuToggle" className="menuToggle" />
+        <label htmlFor="menuToggle" className="mobileMenuBtn">☰</label>
+
         <nav>
           <a href="#inicio">Início</a>
           <a href="#servicos">Serviços</a>
@@ -245,7 +248,7 @@ export default function App() {
           <p className="desc">Solicite um orçamento ou tire suas dúvidas. Nossa equipe responde rapidamente.</p>
           <p className="contactLine">✉️ vendasglobal122@gmail.com</p>
           <p className="contactLine">📞 (21) 97042-2836</p>
-          <p className="contactLine">📍 Rod. Pres. Dutra - Comendador Soares, Nova Iguaçu - RJ, 26280-490</p>
+          <p className="contactLine">📍 Pres. Dutra, 21190 - Comendador Soares, Nova Iguaçu - RJ, 26280-520, Brasil</p>
         </div>
         <form className="form" onSubmit={enviarWhatsApp}>
           <input name="nome" value={form.nome} onChange={handleChange} placeholder="Seu nome" required />
@@ -256,10 +259,10 @@ export default function App() {
       </section>
 
       <section className="mapBox">
-        <iframe src="https://www.google.com/maps?q=Rod.+Pres.+Dutra,+Comendador+Soares,+Nova+Iguaçu+-+RJ,+26280-490&output=embed" width="100%" height="330" style={{ border: 0 }} loading="lazy" title="Mapa Nova Turbo" />
+        <iframe src="https://www.google.com/maps?q=Pres.+Dutra,+21190+-+Comendador+Soares,+Nova+Iguaçu+-+RJ,+26280-520,+Brasil&output=embed" width="100%" height="330" style={{ border: 0 }} loading="lazy" title="Mapa Nova Turbo" />
         <div className="mapActions">
           <a
-            href="https://www.google.com/maps/search/?api=1&query=Rod.+Pres.+Dutra,+Comendador+Soares,+Nova+Iguaçu+-+RJ,+26280-490"
+            href="https://www.google.com/maps/search/?api=1&query=Pres.+Dutra,+21190+-+Comendador+Soares,+Nova+Iguaçu+-+RJ,+26280-520,+Brasil"
             target="_blank"
             rel="noreferrer"
             className="greenBtn"
@@ -269,7 +272,9 @@ export default function App() {
         </div>
       </section>
 
-      <a className="whatsapp" href={whatsapp} target="_blank" rel="noreferrer">💬</a>
+      <a className="whatsapp" href={whatsapp} target="_blank" rel="noreferrer" aria-label="Falar no WhatsApp">
+        <span>💬</span>
+      </a>
       <footer className="footerPro">
         <div className="footerGrid">
           <div className="footerBrand">
@@ -318,6 +323,7 @@ export default function App() {
         .brand img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: center; background: #fff; display: block; }
         .brand h1 { color: #42b35e; font-size: 36px; letter-spacing: 2px; font-weight: 900; }
         .brand p { color: #c8c8c8; font-size: 16px; margin-top: 5px; letter-spacing: .6px; }
+        .menuToggle, .mobileMenuBtn { display: none; }
         nav { display: flex; align-items: center; gap: 42px; font-size: 20px; font-weight: 800; }
         nav a { position: relative; transition: .25s ease; }
         nav a::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 0; height: 3px; background: #42b35e; border-radius: 999px; transition: .25s ease; }
@@ -389,7 +395,14 @@ export default function App() {
         .form button { background: #42b35e; color: #000; border: none; border-radius: 18px; padding: 17px; font-weight: 900; font-size: 16px; cursor: pointer; }
         .mapBox iframe { border-radius: 28px; overflow: hidden; }
         .mapActions { margin-top: 22px; display: flex; justify-content: flex-start; }
-        .whatsapp { position: fixed; right: 22px; bottom: 22px; width: 58px; height: 58px; border-radius: 50%; background: #22c55e; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 30; box-shadow: 0 18px 40px rgba(0,0,0,.3); }
+        .whatsapp { position: fixed; right: 24px; bottom: 24px; width: 68px; height: 68px; border-radius: 50%; background: linear-gradient(135deg, #22c55e, #86efac); color: #06110a; display: flex; align-items: center; justify-content: center; font-size: 32px; z-index: 30; box-shadow: 0 18px 40px rgba(34,197,94,.35); border: 3px solid rgba(255,255,255,.18); animation: pulseWhats 1.7s infinite; transition: .25s ease; }
+        .whatsapp:hover { transform: scale(1.08); box-shadow: 0 22px 55px rgba(34,197,94,.48); }
+        .whatsapp span { display: block; transform: translateY(1px); }
+        @keyframes pulseWhats {
+          0% { box-shadow: 0 0 0 0 rgba(34,197,94,.45), 0 18px 40px rgba(34,197,94,.35); }
+          70% { box-shadow: 0 0 0 16px rgba(34,197,94,0), 0 18px 40px rgba(34,197,94,.35); }
+          100% { box-shadow: 0 0 0 0 rgba(34,197,94,0), 0 18px 40px rgba(34,197,94,.35); }
+        }
         footer { background: #050b07; border-top: 1px solid #1f3525; color: #9ca3af; }
         .footerPro { padding: 0; }
         .footerGrid { max-width: 1220px; margin: 0 auto; padding: 56px 16px 34px; display: grid; grid-template-columns: 1.2fr .8fr 1fr; gap: 36px; }
@@ -406,11 +419,17 @@ export default function App() {
         .footerWhats { margin-top: 10px; display: inline-flex; align-items: center; justify-content: center; width: fit-content; background: linear-gradient(135deg, #42b35e, #67d982); color: #000 !important; padding: 12px 18px; border-radius: 999px; font-weight: 900; }
         .footerBottom { border-top: 1px solid #1f3525; padding: 18px 16px 24px; text-align: center; color: #8b949e; font-size: 14px; }
         @media (max-width: 900px) {
-          .header { min-height: auto; flex-wrap: wrap; justify-content: center; text-align: center; padding: 18px 16px; }
-          .brand { justify-content: center; min-width: auto; width: 100%; }
-          .logoWrap { width: 82px; height: 82px; }
-          nav { order: 3; width: 100%; justify-content: center; flex-wrap: wrap; gap: 18px; font-size: 16px; }
-          .quoteBtn { padding: 14px 20px; }
+          .header { min-height: auto; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 14px; text-align: left; padding: 16px; }
+          .brand { justify-content: flex-start; min-width: auto; width: auto; }
+          .logoWrap { width: 72px; height: 72px; }
+          .brand h1 { font-size: 26px; }
+          .brand p { font-size: 14px; }
+          .mobileMenuBtn { display: flex; width: 48px; height: 48px; border-radius: 14px; align-items: center; justify-content: center; background: #101c13; border: 1px solid #294933; color: #7de693; font-size: 28px; cursor: pointer; }
+          nav { grid-column: 1 / -1; display: none; width: 100%; flex-direction: column; align-items: stretch; gap: 10px; padding: 14px; background: #07130b; border: 1px solid #1f3525; border-radius: 22px; font-size: 16px; }
+          nav a { padding: 14px 16px; background: #101c13; border-radius: 14px; text-align: center; }
+          nav a::after { display: none; }
+          .menuToggle:checked ~ nav { display: flex; }
+          .quoteBtn { grid-column: 1 / -1; width: 100%; text-align: center; padding: 14px 20px; }
           .stats { grid-template-columns: 1fr; margin-top: 0; border-radius: 0; }
           .hero { min-height: auto; }
           .heroBtns { flex-direction: column; align-items: flex-start; }
