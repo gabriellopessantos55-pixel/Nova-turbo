@@ -4,6 +4,15 @@ export default function App() {
 
   const whatsapp = "https://wa.me/5521970422836"
 
+  const servicos = [
+    { nome: "Turbinas", img: "/turbina.jpg" },
+    { nome: "Freios", img: "/freio.jpg" },
+    { nome: "Direção Hidráulica", img: "/direcao.jpg" },
+    { nome: "Embreagem", img: "/embreagem.jpg" },
+    { nome: "Cardans", img: "/cardan.jpg" },
+    { nome: "Compressores", img: "/compressor.jpg" },
+  ]
+
   useEffect(() => {
     const elements = document.querySelectorAll(".fade")
     const observer = new IntersectionObserver(entries => {
@@ -58,60 +67,32 @@ export default function App() {
         </div>
       </section>
 
-      {/* SERVIÇOS */}
-      const servicos = [
-  { nome: "Turbinas", img: "/turbina.jpg" },
-  { nome: "Freios", img: "/freio.jpg" },
-  { nome: "Direção Hidráulica", img: "/direcao.jpg" },
-  { nome: "Embreagem", img: "/embreagem.jpg" },
-  { nome: "Cardans", img: "/cardan.jpg" },
-  { nome: "Compressores", img: "/compressor.jpg" },
-]
-<div style={grid}>
-  {servicos.map((s, i) => (
-    <div key={i} style={card}>
-      
-      <img 
-        src={s.img} 
-        style={{
-          width: "100%",
-          height: "160px",
-          objectFit: "cover",
-          borderRadius: "10px",
-          marginBottom: "10px"
-        }}
-      />
-
-      <h3>{s.nome}</h3>
-    </div>
-  ))}
-</div>
-
-      {/* FORMULÁRIO */}
-      <section style={section}>
+      {/* SERVIÇOS COM IMAGEM */}
+      <section id="servicos" style={section}>
         <div style={container} className="fade">
-          <h2 style={subtitle}>ORÇAMENTO</h2>
+          <h2 style={subtitle}>SERVIÇOS</h2>
+          <h1 style={title2}>Tudo que seu veículo precisa</h1>
 
-          <form style={form}>
-            <input placeholder="Seu nome" style={input} />
-            <input placeholder="Telefone" style={input} />
-            <textarea placeholder="Descreva o serviço" style={input}></textarea>
-            <button style={btn}>Enviar</button>
-          </form>
-        </div>
-      </section>
+          <div style={grid}>
+            {servicos.map((s, i) => (
+              <div key={i} style={card}>
 
-      {/* MAPA */}
-      <section style={section}>
-        <div style={container} className="fade">
-          <h2 style={subtitle}>LOCALIZAÇÃO</h2>
+                <img
+                  src={s.img}
+                  style={{
+                    width: "100%",
+                    height: "160px",
+                    objectFit: "cover",
+                    borderRadius: "10px",
+                    marginBottom: "10px"
+                  }}
+                />
 
-          <iframe
-            src="https://www.google.com/maps?q=Rod.+Pres.+Dutra,+Nova+Iguaçu+-+RJ&output=embed"
-            width="100%"
-            height="300"
-            style={{ borderRadius: "10px", border: "none" }}
-          ></iframe>
+                <h3>{s.nome}</h3>
+
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -124,7 +105,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* BOTÃO WHATSAPP */}
+      {/* WHATSAPP FIXO */}
       <a href={whatsapp} target="_blank" style={whats}>
         💬
       </a>
@@ -134,7 +115,7 @@ export default function App() {
         © Nova Turbo Peças e Serviços - Fundada em 2008
       </footer>
 
-      {/* ANIMAÇÃO CSS */}
+      {/* ANIMAÇÃO */}
       <style>
         {`
         .fade {
@@ -153,7 +134,7 @@ export default function App() {
   )
 }
 
-/* ===== ESTILO PROFISSIONAL ===== */
+/* ESTILOS */
 
 const wrapper = {
   fontFamily: "Arial",
@@ -223,21 +204,8 @@ const grid = {
 
 const card = {
   background: "#1a1a1a",
-  padding: "20px",
+  padding: "15px",
   borderRadius: "10px"
-}
-
-const form = {
-  display: "flex",
-  flexDirection: "column",
-  gap: "10px",
-  marginTop: "20px"
-}
-
-const input = {
-  padding: "10px",
-  borderRadius: "5px",
-  border: "none"
 }
 
 const btn = {
