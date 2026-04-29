@@ -1,315 +1,213 @@
-import { useEffect } from "react"
-
 export default function App() {
+  const whatsapp = 'https://wa.me/5521970422836'
 
-  const whatsapp = "https://wa.me/5521970422836"
-
-  const servicos = [
-    { nome: "Turbinas", img: "/turbina.jpg" },
-    { nome: "Freios", img: "/freio.jpg" },
-    { nome: "Direção Hidráulica", img: "/direcao.jpg" },
-    { nome: "Embreagem", img: "/embreagem.jpg" },
-    { nome: "Cardans", img: "/cardan.jpg" },
-    { nome: "Compressores", img: "/compressor.jpg" },
+  const services = [
+    { title: 'Turbinas Novas e Recondicionadas', text: 'Venda e recuperação de turbinas automotivas para carros, caminhões e utilitários.', icon: '⚙️', img: '/turbina.jpg' },
+    { title: 'Freios', text: 'Manutenção completa do sistema de freios com peças de qualidade.', icon: '🛑', img: '/freio.jpg' },
+    { title: 'Direção Hidráulica', text: 'Reparo e manutenção de caixas, bombas e sistemas hidráulicos.', icon: '🚗', img: '/direcao.jpg' },
+    { title: 'Embreagem', text: 'Troca e manutenção de kits de embreagem para veículos leves e pesados.', icon: '🔧', img: '/embreagem.jpg' },
+    { title: 'Cardans', text: 'Balanceamento, recuperação e troca de componentes.', icon: '🔩', img: '/cardan.jpg' },
+    { title: 'Compressores', text: 'Serviços especializados em compressores e componentes relacionados.', icon: '🛠️', img: '/compressor.jpg' },
   ]
 
-  useEffect(() => {
-    const elements = document.querySelectorAll(".fade")
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show")
-        }
-      })
-    })
-    elements.forEach(el => observer.observe(el))
-  }, [])
+  const products = [
+    'Turbo Sprinter CDI 311/313',
+    'Turbina Renault Master 2.5',
+    'Bi-Turbo Sprinter CDI 415/515',
+    'Kit de Embreagem Pesada',
+  ]
 
   return (
-    <div style={wrapper}>
-
-      {/* NAVBAR */}
-      <nav style={nav}>
-        <div style={containerFlex}>
-          <h2 style={{ color: "orange" }}>NOVA TURBO</h2>
-          <div style={menu}>
-            <a href="#inicio">Início</a>
-            <a href="#servicos">Serviços</a>
-            <a href="#contato">Contato</a>
-          </div>
-          <a href={whatsapp} target="_blank">
-            <button style={btn}>Orçamento</button>
-          </a>
+    <div className="site">
+      <header className="header">
+        <div className="brand">
+          <h1>NOVA TURBO</h1>
+          <p>Peças e Serviços</p>
         </div>
-      </nav>
 
-      {/* HERO */}
-      <section id="inicio" style={hero}>
-        <div style={container}>
-          <span style={badge}>Especialistas em turbinas</span>
+        <nav>
+          <a href="#inicio">Início</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#produtos">Produtos</a>
+          <a href="#sobre">Quem Somos</a>
+          <a href="#contato">Contato</a>
+        </nav>
 
-          <h1 style={title}>
-            Potência, confiança e manutenção para o seu veículo.
-          </h1>
+        <a href={whatsapp} target="_blank" rel="noreferrer" className="quoteBtn">
+          Solicitar Orçamento
+        </a>
+      </header>
 
-          <p style={text}>
-            Trabalhamos com turbinas novas, recondicionadas e serviços completos.
+      <section id="inicio" className="hero">
+        <div className="heroText">
+          <span className="tag">Especialistas em turbinas automotivas</span>
+          <h2>Potência, confiança e manutenção para o seu veículo.</h2>
+          <p>
+            Trabalhamos com turbinas novas, recondicionadas e serviços completos
+            em freios, direção hidráulica, compressores, cardans e embreagens.
           </p>
-
-          <div>
-            <a href={whatsapp} target="_blank">
-              <button style={btn}>WhatsApp</button>
-            </a>
-            <a href="#servicos">
-              <button style={btn2}>Ver Serviços</button>
-            </a>
+          <div className="heroBtns">
+            <a href={whatsapp} target="_blank" rel="noreferrer" className="orangeBtn">Fale no WhatsApp</a>
+            <a href="#servicos" className="darkBtn">Ver Serviços</a>
           </div>
         </div>
       </section>
 
-      {/* SERVIÇOS */}
-      <section id="servicos" style={section}>
-        <div style={container} className="fade">
-          <h2 style={subtitle}>SERVIÇOS</h2>
-          <h1 style={title2}>Tudo que seu veículo precisa</h1>
+      <section className="stats">
+        <div><strong>15+</strong><span>Anos de experiência</span></div>
+        <div><strong>100%</strong><span>Peças testadas</span></div>
+        <div><strong>24h</strong><span>Resposta rápida</span></div>
+      </section>
 
-          <div style={grid}>
-            {servicos.map((s, i) => (
-              <div key={i} style={card}>
+      <section id="servicos" className="section">
+        <p className="label">NOSSOS SERVIÇOS</p>
+        <h2>Tudo o que seu veículo precisa</h2>
+        <p className="desc">Atendimento técnico especializado com peças de qualidade e garantia em todos os serviços.</p>
 
-                <div style={{ overflow: "hidden", borderRadius: "10px" }}>
-                  <img
-                    src={s.img}
-                    style={img}
-                    className="hover-img"
-                  />
-                </div>
-
-                <h3>{s.nome}</h3>
-
+        <div className="grid servicesGrid">
+          {services.map((service) => (
+            <article className="card serviceCard" key={service.title}>
+              <div className="imageBox">
+                <img src={service.img} alt={service.title} />
               </div>
-            ))}
+              <div className="icon">{service.icon}</div>
+              <h3>{service.title}</h3>
+              <p>{service.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="produtos" className="section productsSection">
+        <div className="sectionTop">
+          <div>
+            <p className="label">PRODUTOS EM DESTAQUE</p>
+            <h2>As peças mais procuradas</h2>
           </div>
+          <a href={whatsapp} target="_blank" rel="noreferrer" className="catalogBtn">Ver catálogo completo</a>
+        </div>
+
+        <div className="grid productsGrid">
+          {products.map((product, index) => (
+            <article className="productCard" key={product}>
+              <div className="productIcon">⚙️</div>
+              <span>Destaque #{index + 1}</span>
+              <h3>{product}</h3>
+              <p>Produto com excelente desempenho, qualidade e garantia.</p>
+              <a href={whatsapp} target="_blank" rel="noreferrer" className="orangeBtn small">Solicitar orçamento</a>
+            </article>
+          ))}
         </div>
       </section>
 
-      {/* FORMULÁRIO */}
-      <section style={section}>
-        <div style={container} className="fade">
-          <h2 style={subtitle}>ORÇAMENTO</h2>
-
-          <form style={form}>
-            <input placeholder="Seu nome" style={input} />
-            <input placeholder="Telefone" style={input} />
-            <textarea placeholder="Descreva o serviço" style={input}></textarea>
-            <button style={btn}>Enviar</button>
-          </form>
-        </div>
+      <section id="sobre" className="section about">
+        <p className="label">QUEM SOMOS</p>
+        <h2>Tradição e qualidade em peças automotivas</h2>
+        <p className="desc">
+          A Nova Turbo Peças e Serviços atua desde 2008 oferecendo atendimento rápido,
+          produtos de qualidade e soluções para veículos leves e pesados.
+        </p>
       </section>
 
-      {/* MAPA */}
-      <section style={section}>
-        <div style={container} className="fade">
-          <h2 style={subtitle}>LOCALIZAÇÃO</h2>
-
-          <iframe
-            src="https://www.google.com/maps?q=Rod.+Pres.+Dutra,+Nova+Iguaçu+-+RJ&output=embed"
-            width="100%"
-            height="300"
-            style={{ border: "none", borderRadius: "10px" }}
-          ></iframe>
+      <section id="contato" className="contact">
+        <div className="contactInfo">
+          <p className="label">CONTATO</p>
+          <h2>Fale com nossa equipe</h2>
+          <p className="desc">Solicite um orçamento ou tire suas dúvidas. Nossa equipe responde rapidamente.</p>
+          <p className="contactLine">📞 (21) 97042-2836</p>
+          <p className="contactLine">📍 Rod. Pres. Dutra - Comendador Soares, Nova Iguaçu - RJ, 26280-490</p>
         </div>
+
+        <form className="form">
+          <input placeholder="Seu nome" />
+          <input placeholder="Telefone" />
+          <textarea placeholder="Descreva o serviço desejado" rows="5" />
+          <button type="button">Enviar orçamento</button>
+        </form>
       </section>
 
-      {/* CONTATO */}
-      <section id="contato" style={section}>
-        <div style={container}>
-          <h2>Contato</h2>
-          <p>📞 (21) 97042-2836</p>
-          <p>📍 Nova Iguaçu - RJ</p>
-        </div>
+      <section className="mapBox">
+        <iframe
+          src="https://www.google.com/maps?q=Rod.+Pres.+Dutra,+Comendador+Soares,+Nova+Iguaçu+-+RJ,+26280-490&output=embed"
+          width="100%"
+          height="330"
+          style={{ border: 0 }}
+          loading="lazy"
+          title="Mapa Nova Turbo"
+        />
       </section>
 
-      {/* WHATSAPP FIXO */}
-      <a href={whatsapp} target="_blank" style={whats}>
-        💬
-      </a>
+      <a className="whatsapp" href={whatsapp} target="_blank" rel="noreferrer">💬</a>
 
-      {/* FOOTER */}
-      <footer style={footer}>
-        © Nova Turbo Peças e Serviços - Fundada em 2008
-      </footer>
+      <footer>Nova Turbo Peças e Serviços • Empresa fundada em 2008</footer>
 
-      {/* CSS */}
-      <style>
-        {`
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
+      <style>{`
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { overflow-x: hidden; }
+        a { color: inherit; text-decoration: none; }
+        .site { min-height: 100vh; background: #08090b; color: #fff; font-family: Arial, Helvetica, sans-serif; overflow-x: hidden; }
+        .header { height: 135px; display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 0 16px; background: #08090b; border-bottom: 1px solid #252525; position: sticky; top: 0; z-index: 20; }
+        .brand h1 { color: #ff6a00; font-size: 36px; letter-spacing: 2px; font-weight: 900; }
+        .brand p { color: #aaa; font-size: 16px; margin-top: 5px; }
+        nav { display: flex; align-items: center; gap: 46px; font-size: 20px; font-weight: 700; }
+        nav a:hover { color: #ff6a00; }
+        .quoteBtn, .orangeBtn { background: #ff6a00; color: #000; font-weight: 800; padding: 18px 30px; border-radius: 24px; box-shadow: 0 12px 30px rgba(255,106,0,.25); display: inline-block; }
+        .quoteBtn:hover, .orangeBtn:hover { background: #ff8a1f; transform: translateY(-2px); }
+        .hero { min-height: 650px; display: flex; align-items: center; padding: 70px 16px; background: radial-gradient(circle at right, rgba(255,106,0,.22), transparent 38%), linear-gradient(90deg, #08090b 0%, #120b09 50%, #3a1707 100%); }
+        .heroText { max-width: 920px; }
+        .tag { color: #ff9a3b; border: 1px solid rgba(255,106,0,.55); background: rgba(255,106,0,.08); padding: 10px 24px; border-radius: 999px; display: inline-block; font-size: 20px; margin-bottom: 42px; }
+        .hero h2 { font-size: clamp(46px, 7vw, 92px); line-height: 1.15; font-weight: 900; max-width: 950px; margin-bottom: 38px; }
+        .hero p { color: #e8e8e8; font-size: 27px; line-height: 1.75; max-width: 820px; }
+        .heroBtns { display: flex; gap: 24px; margin-top: 48px; }
+        .darkBtn { border: 1px solid #3c3c46; border-radius: 22px; padding: 18px 34px; font-weight: 800; font-size: 22px; }
+        .stats { max-width: 1180px; margin: -50px auto 80px; padding: 28px; background: #18191d; border: 1px solid #272a30; border-radius: 0 0 34px 34px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .stats div { background: #050607; border-radius: 22px; padding: 32px 20px; text-align: center; }
+        .stats strong { display: block; color: #ff6a00; font-size: 48px; font-weight: 900; }
+        .stats span { color: #bfc3d6; font-size: 20px; }
+        .section, .contact, .mapBox { max-width: 1220px; margin: 0 auto; padding: 80px 16px; }
+        .label { color: #ff6a00; font-weight: 900; letter-spacing: 8px; font-size: 22px; margin-bottom: 24px; }
+        .section h2, .contact h2 { font-size: clamp(38px, 5vw, 58px); line-height: 1.1; font-weight: 900; margin-bottom: 26px; }
+        .desc { color: #bfc3d6; font-size: 24px; line-height: 1.55; max-width: 820px; }
+        .grid { display: grid; gap: 36px; margin-top: 70px; }
+        .servicesGrid { grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); }
+        .card { background: #18191d; border: 1px solid #2a2b31; border-radius: 34px; padding: 30px; transition: .3s ease; }
+        .card:hover { transform: translateY(-8px); border-color: rgba(255,106,0,.45); box-shadow: 0 22px 50px rgba(255,106,0,.08); }
+        .imageBox { height: 210px; overflow: hidden; border-radius: 24px; background: #101114; margin-bottom: 28px; }
+        .imageBox img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; }
+        .card:hover img { transform: scale(1.1); }
+        .icon { font-size: 48px; margin-bottom: 22px; }
+        .card h3, .productCard h3 { font-size: 29px; margin-bottom: 24px; }
+        .card p, .productCard p { color: #bfc3d6; font-size: 22px; line-height: 1.65; }
+        .productsSection { border-top: 1px solid #24262c; border-bottom: 1px solid #24262c; max-width: 100%; padding-left: max(16px, calc((100vw - 1220px) / 2)); padding-right: max(16px, calc((100vw - 1220px) / 2)); background: #0f1013; }
+        .sectionTop { display: flex; justify-content: space-between; gap: 30px; align-items: flex-start; }
+        .catalogBtn { border: 1px solid #3d4048; border-radius: 24px; padding: 24px 32px; font-size: 24px; font-weight: 800; }
+        .productsGrid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .productCard { background: #08090b; border: 1px solid #282b32; border-radius: 34px; padding: 30px; }
+        .productIcon { height: 280px; background: #191a1e; border-radius: 24px; display: flex; align-items: center; justify-content: center; font-size: 78px; margin-bottom: 32px; }
+        .productCard span { color: #ff7a10; background: rgba(255,106,0,.12); border-radius: 999px; padding: 9px 18px; display: inline-block; font-size: 18px; font-weight: 900; margin-bottom: 28px; }
+        .small { margin-top: 26px; padding: 14px 22px; font-size: 16px; }
+        .about { text-align: left; }
+        .contact { display: grid; grid-template-columns: 1fr 420px; gap: 50px; background: #18191d; max-width: 100%; padding-left: max(16px, calc((100vw - 1220px) / 2)); padding-right: max(16px, calc((100vw - 1220px) / 2)); }
+        .contactLine { font-size: 24px; margin-top: 30px; line-height: 1.45; }
+        .form { background: #090a0c; border: 1px solid #2a2b31; border-radius: 32px; padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+        .form input, .form textarea { width: 100%; padding: 17px; border-radius: 16px; border: 1px solid #292b32; background: #15161a; color: #fff; font-size: 16px; outline: none; }
+        .form button { background: #ff6a00; color: #000; border: none; border-radius: 18px; padding: 17px; font-weight: 900; font-size: 16px; cursor: pointer; }
+        .mapBox iframe { border-radius: 28px; overflow: hidden; }
+        .whatsapp { position: fixed; right: 22px; bottom: 22px; width: 58px; height: 58px; border-radius: 50%; background: #22c55e; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 30; box-shadow: 0 18px 40px rgba(0,0,0,.3); }
+        footer { background: #050607; border-top: 1px solid #282b32; color: #9ca3af; text-align: center; padding: 30px 16px; }
+        @media (max-width: 900px) {
+          .header { height: auto; flex-wrap: wrap; justify-content: center; text-align: center; padding: 18px 16px; }
+          nav { order: 3; width: 100%; justify-content: center; flex-wrap: wrap; gap: 18px; font-size: 16px; }
+          .quoteBtn { padding: 14px 20px; }
+          .stats { grid-template-columns: 1fr; margin-top: 0; border-radius: 0; }
+          .hero { min-height: auto; }
+          .heroBtns { flex-direction: column; align-items: flex-start; }
+          .darkBtn { margin: 0; }
+          .sectionTop { flex-direction: column; }
+          .contact { grid-template-columns: 1fr; }
         }
-
-        .fade {
-          opacity: 0;
-          transform: translateY(30px);
-          transition: 0.6s;
-        }
-
-        .fade.show {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        .hover-img {
-          transition: transform 0.4s ease;
-        }
-
-        .hover-img:hover {
-          transform: scale(1.1);
-        }
-
-        a {
-          text-decoration: none;
-          color: white;
-        }
-        `}
-      </style>
-
+      `}</style>
     </div>
   )
-}
-
-/* ESTILOS */
-
-const wrapper = {
-  fontFamily: "Arial",
-  background: "#0a0a0a",
-  color: "white",
-  overflowX: "hidden"
-}
-
-const container = {
-  maxWidth: "1100px",
-  margin: "0 auto",
-  padding: "0 20px"
-}
-
-const containerFlex = {
-  maxWidth: "1100px",
-  margin: "0 auto",
-  padding: "0 20px",
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center"
-}
-
-const nav = {
-  position: "sticky",
-  top: 0,
-  background: "#000",
-  padding: "15px 0",
-  zIndex: 10
-}
-
-const menu = {
-  display: "flex",
-  gap: "20px"
-}
-
-const hero = {
-  padding: "100px 0",
-  background: "linear-gradient(to right, #000, #331100)"
-}
-
-const section = {
-  padding: "60px 0"
-}
-
-const title = {
-  fontSize: "48px",
-  maxWidth: "600px"
-}
-
-const title2 = {
-  fontSize: "36px"
-}
-
-const subtitle = {
-  color: "orange"
-}
-
-const text = {
-  opacity: 0.8,
-  maxWidth: "500px"
-}
-
-const badge = {
-  border: "1px solid orange",
-  padding: "5px 10px",
-  borderRadius: "20px",
-  color: "orange"
-}
-
-const grid = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-  gap: "20px",
-  marginTop: "40px"
-}
-
-const card = {
-  background: "#1a1a1a",
-  padding: "15px",
-  borderRadius: "10px"
-}
-
-const img = {
-  width: "100%",
-  height: "160px",
-  objectFit: "cover"
-}
-
-const form = {
-  display: "flex",
-  flexDirection: "column",
-  gap: "10px",
-  marginTop: "20px"
-}
-
-const input = {
-  padding: "10px",
-  borderRadius: "5px",
-  border: "none"
-}
-
-const btn = {
-  background: "orange",
-  border: "none",
-  padding: "10px 20px",
-  borderRadius: "20px",
-  cursor: "pointer"
-}
-
-const btn2 = {
-  marginLeft: "10px",
-  padding: "10px 20px",
-  borderRadius: "20px",
-  border: "1px solid white",
-  background: "transparent",
-  color: "white"
-}
-
-const whats = {
-  position: "fixed",
-  bottom: "20px",
-  right: "20px",
-  background: "green",
-  padding: "15px",
-  borderRadius: "50%"
-}
-
-const footer = {
-  textAlign: "center",
-  padding: "20px",
-  background: "#000"
 }
