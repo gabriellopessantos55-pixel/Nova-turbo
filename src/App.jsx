@@ -6,10 +6,7 @@ export default function App() {
 
   const services = [
     { title: 'Turbinas Novas e Recondicionadas', text: 'Venda e recuperação de turbinas automotivas para carros, caminhões e utilitários.', icon: '⚙️', img: '/turbina.jpg' },
-    { title: 'Freios', text: 'Manutenção completa do sistema de freios com peças de qualidade.', icon: '🛑', img: '/freio.jpg' },
     { title: 'Direção Hidráulica', text: 'Reparo e manutenção de caixas, bombas e sistemas hidráulicos.', icon: '🚗', img: '/direcao.jpg' },
-    { title: 'Embreagem', text: 'Troca e manutenção de kits de embreagem para veículos leves e pesados.', icon: '🔧', img: '/embreagem.jpg' },
-    { title: 'Cardans', text: 'Balanceamento, recuperação e troca de componentes.', icon: '🔩', img: '/cardan.jpg' },
     { title: 'Compressores', text: 'Serviços especializados em compressores e componentes relacionados.', icon: '🛠️', img: '/compressor.jpg' },
   ]
 
