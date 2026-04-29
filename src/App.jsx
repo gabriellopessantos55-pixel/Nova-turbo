@@ -30,7 +30,7 @@ export default function App() {
 
       {/* NAVBAR */}
       <nav style={nav}>
-        <div style={container}>
+        <div style={containerFlex}>
           <h2 style={{ color: "orange" }}>NOVA TURBO</h2>
           <div style={menu}>
             <a href="#inicio">Início</a>
@@ -58,7 +58,7 @@ export default function App() {
 
           <div>
             <a href={whatsapp} target="_blank">
-              <button style={btn}>Fale no WhatsApp</button>
+              <button style={btn}>WhatsApp</button>
             </a>
             <a href="#servicos">
               <button style={btn2}>Ver Serviços</button>
@@ -67,7 +67,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* SERVIÇOS COM IMAGEM */}
+      {/* SERVIÇOS */}
       <section id="servicos" style={section}>
         <div style={container} className="fade">
           <h2 style={subtitle}>SERVIÇOS</h2>
@@ -77,22 +77,47 @@ export default function App() {
             {servicos.map((s, i) => (
               <div key={i} style={card}>
 
-                <img
-                  src={s.img}
-                  style={{
-                    width: "100%",
-                    height: "160px",
-                    objectFit: "cover",
-                    borderRadius: "10px",
-                    marginBottom: "10px"
-                  }}
-                />
+                <div style={{ overflow: "hidden", borderRadius: "10px" }}>
+                  <img
+                    src={s.img}
+                    style={img}
+                    className="hover-img"
+                  />
+                </div>
 
                 <h3>{s.nome}</h3>
 
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FORMULÁRIO */}
+      <section style={section}>
+        <div style={container} className="fade">
+          <h2 style={subtitle}>ORÇAMENTO</h2>
+
+          <form style={form}>
+            <input placeholder="Seu nome" style={input} />
+            <input placeholder="Telefone" style={input} />
+            <textarea placeholder="Descreva o serviço" style={input}></textarea>
+            <button style={btn}>Enviar</button>
+          </form>
+        </div>
+      </section>
+
+      {/* MAPA */}
+      <section style={section}>
+        <div style={container} className="fade">
+          <h2 style={subtitle}>LOCALIZAÇÃO</h2>
+
+          <iframe
+            src="https://www.google.com/maps?q=Rod.+Pres.+Dutra,+Nova+Iguaçu+-+RJ&output=embed"
+            width="100%"
+            height="300"
+            style={{ border: "none", borderRadius: "10px" }}
+          ></iframe>
         </div>
       </section>
 
@@ -115,17 +140,37 @@ export default function App() {
         © Nova Turbo Peças e Serviços - Fundada em 2008
       </footer>
 
-      {/* ANIMAÇÃO */}
+      {/* CSS */}
       <style>
         {`
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
         .fade {
           opacity: 0;
           transform: translateY(30px);
           transition: 0.6s;
         }
+
         .fade.show {
           opacity: 1;
           transform: translateY(0);
+        }
+
+        .hover-img {
+          transition: transform 0.4s ease;
+        }
+
+        .hover-img:hover {
+          transform: scale(1.1);
+        }
+
+        a {
+          text-decoration: none;
+          color: white;
         }
         `}
       </style>
@@ -139,13 +184,23 @@ export default function App() {
 const wrapper = {
   fontFamily: "Arial",
   background: "#0a0a0a",
-  color: "white"
+  color: "white",
+  overflowX: "hidden"
 }
 
 const container = {
   maxWidth: "1100px",
   margin: "0 auto",
   padding: "0 20px"
+}
+
+const containerFlex = {
+  maxWidth: "1100px",
+  margin: "0 auto",
+  padding: "0 20px",
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center"
 }
 
 const nav = {
@@ -206,6 +261,25 @@ const card = {
   background: "#1a1a1a",
   padding: "15px",
   borderRadius: "10px"
+}
+
+const img = {
+  width: "100%",
+  height: "160px",
+  objectFit: "cover"
+}
+
+const form = {
+  display: "flex",
+  flexDirection: "column",
+  gap: "10px",
+  marginTop: "20px"
+}
+
+const input = {
+  padding: "10px",
+  borderRadius: "5px",
+  border: "none"
 }
 
 const btn = {
