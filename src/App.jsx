@@ -59,27 +59,33 @@ export default function App() {
       </section>
 
       {/* SERVIÇOS */}
-      <section id="servicos" style={section}>
-        <div style={container} className="fade">
-          <h2 style={subtitle}>SERVIÇOS</h2>
-          <h1 style={title2}>Tudo que seu veículo precisa</h1>
+      const servicos = [
+  { nome: "Turbinas", img: "/turbina.jpg" },
+  { nome: "Freios", img: "/freio.jpg" },
+  { nome: "Direção Hidráulica", img: "/direcao.jpg" },
+  { nome: "Embreagem", img: "/embreagem.jpg" },
+  { nome: "Cardans", img: "/cardan.jpg" },
+  { nome: "Compressores", img: "/compressor.jpg" },
+]
+<div style={grid}>
+  {servicos.map((s, i) => (
+    <div key={i} style={card}>
+      
+      <img 
+        src={s.img} 
+        style={{
+          width: "100%",
+          height: "160px",
+          objectFit: "cover",
+          borderRadius: "10px",
+          marginBottom: "10px"
+        }}
+      />
 
-          <div style={grid}>
-            {[
-              "Turbinas",
-              "Freios",
-              "Direção Hidráulica",
-              "Embreagem",
-              "Cardans",
-              "Compressadores"
-            ].map((item, i) => (
-              <div key={i} style={card}>
-                <h3>{item}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <h3>{s.nome}</h3>
+    </div>
+  ))}
+</div>
 
       {/* FORMULÁRIO */}
       <section style={section}>
