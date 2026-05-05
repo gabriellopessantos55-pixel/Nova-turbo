@@ -29,7 +29,11 @@ export default function App() {
     { name: 'Marcos A.', text: 'Resolveram meu problema com direção hidráulica no mesmo dia.' },
   ]
 
-  const brands = ['Mercedes-Benz', 'Renault', 'Volkswagen', 'Ford', 'Iveco', 'Scania', 'Volvo', 'Fiat', 'Chevrolet']
+  const brands = [
+    { name: 'Garrett by Honeywell', img: '/garrett.jpg' },
+    { name: 'Holset Turbochargers', img: '/holset.jpg' },
+    { name: 'BorgWarner', img: '/borgwarner.jpg' },
+  ]
 
   const faqs = [
     { q: 'Vocês trabalham com turbinas novas e recondicionadas?', a: 'Sim. Trabalhamos com venda, manutenção e recuperação de turbinas automotivas.' },
@@ -196,10 +200,17 @@ export default function App() {
       
 
       <section className="section brandsSection">
-        <p className="label">MARCAS ATENDIDAS</p>
-        <h2>Trabalhamos com diversas linhas automotivas</h2>
-        <div className="brandsGrid">
-          {brands.map((brand) => <span key={brand}>{brand}</span>)}
+        <p className="label">MARCAS DE TURBINAS</p>
+        <h2>Trabalhamos com as principais marcas de turbinas</h2>
+        <p className="desc">Arraste para o lado e veja algumas das marcas de turbinas atendidas pela Nova Turbo.</p>
+
+        <div className="brandsCarousel">
+          {brands.map((brand) => (
+            <article className="brandCard" key={brand.name}>
+              <img src={brand.img} alt={brand.name} />
+              <h3>{brand.name}</h3>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -404,8 +415,14 @@ export default function App() {
         .productIcon { height: 280px; background: #101c13; border-radius: 24px; display: flex; align-items: center; justify-content: center; margin-bottom: 32px; overflow: hidden; }
         .productCard span { color: #7de693; background: rgba(66,179,94,.12); border-radius: 999px; padding: 9px 18px; display: inline-block; font-size: 18px; font-weight: 900; margin-bottom: 28px; }
         .small { margin-top: 26px; padding: 14px 22px; font-size: 16px; }
-        .brandsGrid { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 40px; }
-        .brandsGrid span { background: #101c13; border: 1px solid #294933; color: #d9ffe1; padding: 14px 20px; border-radius: 999px; font-weight: 800; }
+        .brandsCarousel { display: flex; gap: 24px; margin-top: 44px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 18px; -webkit-overflow-scrolling: touch; }
+        .brandsCarousel::-webkit-scrollbar { height: 8px; }
+        .brandsCarousel::-webkit-scrollbar-track { background: #07130b; border-radius: 999px; }
+        .brandsCarousel::-webkit-scrollbar-thumb { background: #42b35e; border-radius: 999px; }
+        .brandCard { min-width: 320px; max-width: 360px; scroll-snap-align: start; background: #101c13; border: 1px solid #294933; border-radius: 28px; padding: 24px; transition: .3s ease; }
+        .brandCard:hover { transform: translateY(-6px); border-color: rgba(66,179,94,.55); box-shadow: 0 20px 45px rgba(66,179,94,.1); }
+        .brandCard img { width: 100%; height: 180px; object-fit: contain; background: #fff; border-radius: 20px; padding: 18px; display: block; }
+        .brandCard h3 { margin-top: 18px; color: #e7efe9; font-size: 22px; }
         .galleryCard { overflow: hidden; padding: 0; }
         .galleryCard img { height: 240px; display: block; }
         .galleryCard h3 { padding: 20px; font-size: 22px; }
