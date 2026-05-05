@@ -9,9 +9,10 @@ export default function App() {
   ]
 
   const products = [
-    { title: 'Turbo Sprinter CDI 311/313', text: 'Produto com excelente desempenho, qualidade e garantia.', img: '/turbina1.jpg', destaque: '#1' },
-    { title: 'Turbina Renault Master 2.5', text: 'Alta performance e durabilidade para veículos utilitários.', img: '/turbina2.jpg', destaque: '#2' },
-    { title: 'Turbina Hilux 3.0', text: 'Excelente desempenho para linha diesel.', img: '/turbina3.jpg', destaque: '#3' }
+    { name: 'Turbo Sprinter CDI 311/313', text: 'Produto com excelente desempenho, qualidade e garantia.', img: '/turbina1.jpg' },
+    { name: 'Turbina Renault Master 2.5', text: 'Alta performance e durabilidade para veículos utilitários.', img: '/turbina2.jpg' },
+    { name: 'Turbina Hilux 3.0', text: 'Excelente desempenho para linha diesel.', img: '/turbina3.jpg' },
+    { name: 'Turbina HR / Kia Bongo', text: 'Peça muito procurada para veículos de trabalho.', img: '/turbina4.jpg' },
   ]
 
   const gallery = [
@@ -141,6 +142,30 @@ export default function App() {
           <div className="whyCard"><strong>⚡</strong><h3>Resposta rápida</h3><p>Atendimento ágil pelo WhatsApp para orçamentos e dúvidas.</p></div>
           <div className="whyCard"><strong>🔧</strong><h3>Especialistas em Turbinas</h3>
             <p>Trabalhamos exclusivamente com turbinas para caminhões, carros, vans e até barcos, com diagnóstico preciso e serviços completos.</p></div>
+        </div>
+      </section>
+
+      <section id="produtos" className="section productsSection">
+        <div className="sectionTop">
+          <div>
+            <p className="label">PEÇAS MAIS VENDIDAS</p>
+            <h2>Turbinas mais procuradas</h2>
+          </div>
+          <a href={whatsapp} target="_blank" rel="noreferrer" className="catalogBtn">Ver catálogo completo</a>
+        </div>
+
+        <div className="grid productsGrid">
+          {products.map((product, index) => (
+            <article className="productCard" key={product.name}>
+              <div className="productIcon productImageWrap">
+                <img src={product.img} alt={product.name} />
+              </div>
+              <span>Destaque #{index + 1}</span>
+              <h3>{product.name}</h3>
+              <p>{product.text}</p>
+              <a href={whatsapp} target="_blank" rel="noreferrer" className="greenBtn small">Solicitar orçamento</a>
+            </article>
+          ))}
         </div>
       </section>
 
