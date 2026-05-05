@@ -5,7 +5,12 @@ export default function App() {
   const [form, setForm] = useState({ nome: '', telefone: '', servico: '' })
 
   const services = [
-    { title: 'Turbinas Novas e Recondicionadas', text: 'Venda e recuperação de turbinas automotivas para carros, caminhões, vans e barcos.', icon: '⚙️', img: '/turbina.jpg' }
+    { title: 'Turbinas Novas e Recondicionadas', text: 'Venda e recuperação de turbinas automotivas para carros, caminhões, vans e barcos.', icon: '⚙️', img: '/turbina.jpg' },
+    { title: 'Troca do Conjunto Central', text: 'Substituição do conjunto central da turbina com avaliação técnica e serviço especializado.', icon: '✅', img: '/conjunto-central.jpg' },
+    { title: 'Troca de Reparo', text: 'Serviço de troca de reparo para restaurar o funcionamento correto da turbina.', icon: '✅', img: '/troca-reparo.jpg' },
+    { title: 'Balanceamento', text: 'Balanceamento técnico da turbina para melhor desempenho, segurança e durabilidade.', icon: '✅', img: '/balanceamento.jpg' },
+    { title: 'Limpeza do Intercooler', text: 'Limpeza do intercooler e verificação do sistema para melhorar a eficiência do motor turbo.', icon: '✅', img: '/intercooler.jpg' },
+    { title: 'Troca do Óleo do Motor', text: 'Orientação e serviço preventivo para preservar a turbina e evitar danos no motor.', icon: '✅', img: '/oleo-motor.jpg' },
   ]
 
   const products = [
@@ -243,6 +248,20 @@ export default function App() {
         </div>
       </section>
 
+      <section className="section instagramSection">
+        <p className="label">INSTAGRAM</p>
+        <h2>Acompanhe a Nova Turbo nas redes sociais</h2>
+        <p className="desc">Veja fotos, serviços realizados, novidades e conteúdos sobre turbinas no Instagram oficial da empresa.</p>
+        <a
+          href="https://www.instagram.com/novaturbo2009?igsh=MXFqOTVmNGRsd2cyag=="
+          target="_blank"
+          rel="noreferrer"
+          className="instagramBtn"
+        >
+          📸 Seguir @novaturbo2009
+        </a>
+      </section>
+
       <section id="contato" className="contact">
         <div className="contactInfo">
           <p className="label">CONTATO</p>
@@ -389,6 +408,9 @@ export default function App() {
         .seoLocal { background: #08160c; border-top: 1px solid #1f3525; border-bottom: 1px solid #1f3525; max-width: 100%; padding-left: max(16px, calc((100vw - 1220px) / 2)); padding-right: max(16px, calc((100vw - 1220px) / 2)); }
         .aboutHighlights { display: grid; gap: 14px; margin-top: 28px; max-width: 860px; }
         .aboutHighlight { background: #101c13; border: 1px solid #294933; color: #e7efe9; padding: 16px 18px; border-radius: 18px; font-size: 18px; font-weight: 800; }
+        .instagramSection { text-align: left; }
+        .instagramBtn { margin-top: 30px; display: inline-flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #42b35e, #67d982); color: #000; padding: 18px 28px; border-radius: 999px; font-weight: 900; box-shadow: 0 12px 30px rgba(66,179,94,.25); transition: .25s ease; }
+        .instagramBtn:hover { transform: translateY(-3px); background: #7de693; }
         .contact { display: grid; grid-template-columns: 1fr 420px; gap: 50px; background: #101c13; max-width: 100%; padding-left: max(16px, calc((100vw - 1220px) / 2)); padding-right: max(16px, calc((100vw - 1220px) / 2)); }
         @media (max-width: 900px) {
           .footerGrid { grid-template-columns: 1fr; }
