@@ -7,10 +7,6 @@ export default function App() {
   const services = [
     { title: 'Turbinas Novas e Recondicionadas', text: 'Venda e recuperação de turbinas automotivas para carros, caminhões, vans e barcos.', icon: '⚙️', img: '/turbina.jpg' },
     { title: 'Troca do Conjunto Central', text: 'Substituição do conjunto central da turbina com avaliação técnica e serviço especializado.', icon: '✅', img: '/conjunto-central.jpg' },
-    { title: 'Troca de Reparo', text: 'Serviço de troca de reparo para restaurar o funcionamento correto da turbina.', icon: '✅', img: '/troca-reparo.jpg' },
-    { title: 'Balanceamento', text: 'Balanceamento técnico da turbina para melhor desempenho, segurança e durabilidade.', icon: '✅', img: '/balanceamento.jpg' },
-    { title: 'Limpeza do Intercooler', text: 'Limpeza do intercooler e verificação do sistema para melhorar a eficiência do motor turbo.', icon: '✅', img: '/intercooler.jpg' },
-    { title: 'Troca do Óleo do Motor', text: 'Orientação e serviço preventivo para preservar a turbina e evitar danos no motor.', icon: '✅', img: '/oleo-motor.jpg' },
   ]
 
   const products = [
@@ -127,6 +123,18 @@ export default function App() {
         <p className="label">NOSSOS SERVIÇOS</p>
         <h2>Tudo o que seu veículo precisa</h2>
         <p className="desc">Atendimento técnico especializado com peças de qualidade e garantia em todos os serviços.</p>
+
+        <div className="servicesBanner">
+          <img src="/servicos-banner.jpg" alt="Nossos Serviços" />
+          <div className="servicesOverlay">
+            <p>✔ Troca do Conjunto Central</p>
+            <p>✔ Troca de Reparo</p>
+            <p>✔ Balanceamento</p>
+            <p>✔ Limpeza do Intercooler</p>
+            <p>✔ Troca do Óleo do Motor</p>
+          </div>
+        </div>
+
         <div className="grid servicesGrid">
           {services.map((service) => (
             <article className="card serviceCard" key={service.title}>
@@ -369,6 +377,10 @@ export default function App() {
         .desc { color: #bfc3d6; font-size: 24px; line-height: 1.55; max-width: 820px; }
         .grid { display: grid; gap: 36px; margin-top: 70px; }
         .servicesGrid, .whyGrid, .galleryGrid, .reviewsGrid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .servicesBanner { position: relative; margin: 34px 0 42px; border-radius: 28px; overflow: hidden; border: 1px solid #1f3525; background: #101c13; }
+        .servicesBanner img { width: 100%; height: 340px; object-fit: cover; display: block; opacity: .82; }
+        .servicesOverlay { position: absolute; left: 24px; bottom: 24px; max-width: 620px; background: rgba(0, 0, 0, .62); border: 1px solid rgba(255,255,255,.14); padding: 22px 26px; border-radius: 20px; backdrop-filter: blur(8px); }
+        .servicesOverlay p { color: #fff; font-weight: 900; font-size: 22px; line-height: 1.45; margin: 6px 0; }
         .card, .whyCard, .reviewCard, .galleryCard, .hoursBox, .faqList details { background: #101c13; border: 1px solid #1f3525; border-radius: 28px; padding: 26px; transition: .3s ease; }
         .card:hover, .whyCard:hover, .reviewCard:hover, .galleryCard:hover { transform: translateY(-8px); border-color: rgba(66,179,94,.45); box-shadow: 0 22px 50px rgba(66,179,94,.08); }
         .imageBox { height: 210px; overflow: hidden; border-radius: 24px; background: #101114; margin-bottom: 28px; }
@@ -461,6 +473,9 @@ export default function App() {
           .heroBtns { flex-direction: column; align-items: flex-start; }
           .sectionTop { flex-direction: column; }
           .contact { grid-template-columns: 1fr; }
+          .servicesBanner img { height: 420px; }
+          .servicesOverlay { position: static; max-width: none; border-radius: 0; background: #101c13; }
+          .servicesOverlay p { font-size: 18px; }
         }
       `}</style>
     </div>
