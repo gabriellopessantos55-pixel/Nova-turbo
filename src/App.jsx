@@ -5,16 +5,13 @@ export default function App() {
   const [form, setForm] = useState({ nome: '', telefone: '', servico: '' })
 
   const services = [
-    { title: 'Turbinas Novas e Recondicionadas', text: 'Venda e recuperação de turbinas automotivas para carros, caminhões e utilitários.', icon: '⚙️', img: '/turbina.jpg' },
-    { title: 'Direção Hidráulica', text: 'Reparo e manutenção de caixas, bombas e sistemas hidráulicos.', icon: '🚗', img: '/direcao.jpg' },
-    { title: 'Compressores', text: 'Serviços especializados em compressores e componentes relacionados.', icon: '🛠️', img: '/compressor.jpg' },
+    { title: 'Turbinas Novas e Recondicionadas', text: 'Venda e recuperação de turbinas automotivas para carros, caminhões, vans e barcos.', icon: '⚙️', img: '/turbina.jpg' }
   ]
 
   const products = [
-    { name: 'Turbo Sprinter CDI 311/313', img: '/produto1.jpg' },
-    { name: 'Turbina Renault Master 2.5', img: '/produto2.jpg' },
-    { name: 'Bi-Turbo Sprinter CDI 415/515', img: '/produto3.jpg' },
-    { name: 'Kit de Embreagem Pesada', img: '/produto4.jpg' },
+    { title: 'Turbo Sprinter CDI 311/313', text: 'Produto com excelente desempenho, qualidade e garantia.', img: '/turbina1.jpg', destaque: '#1' },
+    { title: 'Turbina Renault Master 2.5', text: 'Alta performance e durabilidade para veículos utilitários.', img: '/turbina2.jpg', destaque: '#2' },
+    { title: 'Turbina Hilux 3.0', text: 'Excelente desempenho para linha diesel.', img: '/turbina3.jpg', destaque: '#3' }
   ]
 
   const gallery = [
