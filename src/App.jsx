@@ -103,8 +103,10 @@ export default function App() {
       <section id="inicio" className="hero">
         <div className="heroText">
           <span className="tag">Especialistas em turbinas automotivas</span>
-          <h2>Potência, confiança e manutenção para o seu veículo.</h2>
-          <p>Trabalhamos com turbinas novas, recondicionadas e serviços completos em freios, direção hidráulica, compressores, cardans e embreagens.</p>
+          <h2>Especialistas em turbinas automotivas para caminhões, carros, vans e barcos.</h2>
+          <p>* Turbinas Novas e Recondicionadas 
+* Serviço com Troca de Reparo e Troca do Conjunto Central 
+* Diagnóstico especializado em Motores Turbo</p>
           <div className="heroBtns">
             <a href={whatsapp} target="_blank" rel="noreferrer" className="greenBtn">Fale no WhatsApp</a>
             <a href="#servicos" className="darkBtn">Ver Serviços</a>
@@ -140,7 +142,8 @@ export default function App() {
         <div className="grid whyGrid">
           <div className="whyCard"><strong>🛡️</strong><h3>Garantia nos serviços</h3><p>Serviços realizados com cuidado técnico e peças testadas.</p></div>
           <div className="whyCard"><strong>⚡</strong><h3>Resposta rápida</h3><p>Atendimento ágil pelo WhatsApp para orçamentos e dúvidas.</p></div>
-          <div className="whyCard"><strong>🔧</strong><h3>Equipe especializada</h3><p>Experiência com turbinas, freios, direção hidráulica e linha diesel.</p></div>
+          <div className="whyCard"><strong>🔧</strong><h3>Especialistas em Turbinas</h3>
+            <p>Trabalhamos exclusivamente com turbinas para caminhões, carros, vans e até barcos, com diagnóstico preciso e serviços completos.</p></div>
         </div>
       </section>
 
@@ -155,26 +158,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="produtos" className="section productsSection">
-        <div className="sectionTop">
-          <div>
-            <p className="label">PRODUTOS EM DESTAQUE</p>
-            <h2>As peças mais procuradas</h2>
-          </div>
-          <a href={whatsapp} target="_blank" rel="noreferrer" className="catalogBtn">Ver catálogo completo</a>
-        </div>
-        <div className="grid productsGrid">
-          {products.map((product, index) => (
-            <article className="productCard" key={product.name}>
-              <div className="productIcon productImageWrap"><img src={product.img} alt={product.name} /></div>
-              <span>Destaque #{index + 1}</span>
-              <h3>{product.name}</h3>
-              <p>Produto com excelente desempenho, qualidade e garantia.</p>
-              <a href={whatsapp} target="_blank" rel="noreferrer" className="greenBtn small">Solicitar orçamento</a>
-            </article>
-          ))}
-        </div>
-      </section>
+      
 
       <section className="section brandsSection">
         <p className="label">MARCAS ATENDIDAS</p>
@@ -224,16 +208,7 @@ export default function App() {
         </div>
       </section>
 
-      <section className="section seoLocal">
-        <p className="label">ATENDIMENTO LOCAL</p>
-        <h2>Peças e serviços automotivos em Nova Iguaçu - RJ</h2>
-        <p className="desc">
-          A Nova Turbo Peças e Serviços atende clientes em Nova Iguaçu, Comendador Soares,
-          Rodovia Presidente Dutra e região. Somos referência local em turbinas em Nova Iguaçu,
-          freios em Nova Iguaçu, direção hidráulica em Nova Iguaçu, embreagens, cardans,
-          compressores e peças automotivas para veículos leves e pesados.
-        </p>
-      </section>
+      
 
       <section id="sobre" className="section about">
         <p className="label">QUEM SOMOS</p>
