@@ -128,8 +128,7 @@ export default function App() {
         <h2>Tudo o que seu veículo precisa</h2>
         <p className="desc">Atendimento técnico especializado com peças de qualidade e garantia em todos os serviços.</p>
 
-        <div className="servicesBanner">
-          <img src="/servicos-banner.jpg" alt="Nossos Serviços" />
+        <div className="servicesBanner textOnly">
           <div className="servicesOverlay">
             <p>✔ Troca do Conjunto Central</p>
             <p>✔ Troca de Reparo</p>
@@ -356,7 +355,7 @@ export default function App() {
         html { scroll-behavior: smooth; }
         body { overflow-x: hidden; }
         a { color: inherit; text-decoration: none; }
-        .site { min-height: 100vh; background: #06110a; color: #fff; font-family: Arial, Helvetica, sans-serif; overflow-x: hidden; }
+        idth: 100%; }
         .header { min-height: 120px; display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 14px 24px; background: rgba(8,9,11,.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.08); position: sticky; top: 0; z-index: 20; box-shadow: 0 12px 35px rgba(0,0,0,.28); }
         .brand { display: flex; align-items: center; gap: 16px; min-width: 260px; }
         .logoWrap { width: 92px; height: 92px; border-radius: 50%; padding: 5px; background: linear-gradient(135deg, #42b35e, #ffffff22, #0b0b0b); box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 14px 35px rgba(66,179,94,.18); flex-shrink: 0; }
@@ -387,11 +386,10 @@ export default function App() {
         .section h2, .contact h2 { font-size: clamp(38px, 5vw, 58px); line-height: 1.1; font-weight: 900; margin-bottom: 26px; }
         .desc { color: #bfc3d6; font-size: 24px; line-height: 1.55; max-width: 820px; }
         .grid { display: grid; gap: 36px; margin-top: 70px; }
-        .servicesGrid, .whyGrid, .galleryGrid, .reviewsGrid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-        .servicesBanner { position: relative; margin: 34px 0 42px; border-radius: 28px; overflow: hidden; border: 1px solid #1f3525; background: #101c13; }
-        .servicesBanner img { width: 100%; height: 340px; object-fit: cover; display: block; opacity: .82; }
-        .servicesOverlay { position: absolute; left: 24px; bottom: 24px; max-width: 620px; background: rgba(0, 0, 0, .62); border: 1px solid rgba(255,255,255,.14); padding: 22px 26px; border-radius: 20px; backdrop-filter: blur(8px); }
-        .servicesOverlay p { color: #fff; font-weight: 900; font-size: 22px; line-height: 1.45; margin: 6px 0; }
+        .servicesGrid, .whyGrid, .galleryGrid, .reviewsGrid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)tems: center; padding: 26px; }
+        .servicesBanner.textOnly { justify-content:flex-start; }
+        .servicesOverlay { position: static; max-width: 520px; background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.12); padding: 22px 26px; border-radius: 20px; backdrop-filter: blur(6px); }
+        .servicesOverlaottom: 24px; max-width: 620px; background: rgba(0, 0, 0, .62); border: 1px solid rgba(255,255,255,.14); padding: 22px 26p-weight: 900; font-size: 22px; line-height: 1.45; margin: 6px 0; }
         .card, .whyCard, .reviewCard, .galleryCard, .hoursBox, .faqList details { background: #101c13; border: 1px solid #1f3525; border-radius: 28px; padding: 26px; transition: .3s ease; }
         .card:hover, .whyCard:hover, .reviewCard:hover, .galleryCard:hover { transform: translateY(-8px); border-color: rgba(66,179,94,.45); box-shadow: 0 22px 50px rgba(66,179,94,.08); }
         .imageBox { height: 210px; overflow: hidden; border-radius: 24px; background: #101114; margin-bottom: 28px; }
@@ -442,38 +440,39 @@ export default function App() {
         .instagramBtn:hover { transform: translateY(-3px); background: #7de693; }
         .contact { display: grid; grid-template-columns: 1fr 420px; gap: 50px; background: #101c13; max-width: 100%; padding-left: max(16px, calc((100vw - 1220px) / 2)); padding-right: max(16px, calc((100vw - 1220px) / 2)); }
         @media (max-width: 900px) {
-          .footerGrid { grid-template-columns: 1fr; }
+          .footerGrid { max-width: 1220px; width: 100%; margin: 0 auto; padding: 56px 16px 34px; display: grid; grid-template-columns: 1.2fr .8fr 1fr; gap: 36px; overflow: hidden; }
         }
         .contactLine { font-size: 24px; margin-top: 30px; line-height: 1.45; }
         .form { background: #06110a; border: 1px solid #1f3525; border-radius: 32px; padding: 28px; display: flex; flex-direction: column; gap: 16px; }
-        .form input, .form textarea { width: 100%; padding: 17px; border-radius: 16px; border: 1px solid #294933; background: #0b1c10; color: #fff; font-size: 16px; outline: none; }
-        .form button { background: #42b35e; color: #000; border: none; border-radius: 18px; padding: 17px; font-weight: 900; font-size: 16px; cursor: pointer; }
-        .mapBox iframe { border-radius: 28px; overflow: hidden; }
+        .form input, .form textarea { width: 100%; padding: 17pxtton { background: #42b35e; color: #000; border: none; border-radius: 18px; padding: 17px; font-weight: 900; font-size: 16px; cursor: pointer; }
+        .mapBox iframe { border-radius: 28px; overflow: hidden; max-width: 100%; }
         .mapActions { margin-top: 22px; display: flex; justify-content: flex-start; }
         .whatsapp { position: fixed; right: 24px; bottom: 24px; width: 68px; height: 68px; border-radius: 50%; background: linear-gradient(135deg, #22c55e, #86efac); color: #06110a; display: flex; align-items: center; justify-content: center; font-size: 32px; z-index: 30; box-shadow: 0 18px 40px rgba(34,197,94,.35); border: 3px solid rgba(255,255,255,.18); animation: pulseWhats 1.7s infinite; transition: .25s ease; }
         .whatsapp:hover { transform: scale(1.08); box-shadow: 0 22px 55px rgba(34,197,94,.48); }
         .whatsapp span { display: block; transform: translateY(1px); }
         @keyframes pulseWhats {
           0% { box-shadow: 0 0 0 0 rgba(34,197,94,.45), 0 18px 40px rgba(34,197,94,.35); }
-          70% { box-shadow: 0 0 0 16px rgba(34,197,94,0), 0 18px 40px rgba(34,197,94,.35); }
+          70% { box-shadow: .35); }
           100% { box-shadow: 0 0 0 0 rgba(34,197,94,0), 0 18px 40px rgba(34,197,94,.35); }
         }
         footer { background: #050b07; border-top: 1px solid #1f3525; color: #9ca3af; }
-        .footerPro { padding: 0; }
+        .footerPro { padding: 0; overflow: hidden; }
         .footerGrid { max-width: 1220px; margin: 0 auto; padding: 56px 16px 34px; display: grid; grid-template-columns: 1.2fr .8fr 1fr; gap: 36px; }
         .footerBrand { display: flex; align-items: flex-start; gap: 18px; }
-        .footerLogoWrap { width: 82px; height: 82px; border-radius: 50%; padding: 4px; background: linear-gradient(135deg, #42b35e, #ffffff22, #0b0b0b); flex-shrink: 0; }
+        .footerLogoWrap { width: 82px; height: 82px; border-radius: 50%; padding: 4px; background: lb35e, #ffffff22, #0b0b0b); flex-shrink: 0; }
         .footerLogoWrap img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: #fff; display: block; }
         .footerBrand h3 { color: #42b35e; font-size: 28px; font-weight: 900; letter-spacing: 1px; }
         .footerBrand p { color: #e5e7eb; margin-top: 6px; font-size: 18px; }
         .footerBrand span { display: block; margin-top: 10px; color: #9ca3af; font-size: 15px; }
         .footerCol h4 { color: #fff; font-size: 20px; margin-bottom: 18px; }
         .footerCol { display: flex; flex-direction: column; gap: 12px; }
-        .footerCol a, .footerCol p { color: #c7d2d9; font-size: 16px; line-height: 1.6; }
+        .footerCol a, .footerCol p { color: #c7d2d9; font-size: 16px; line-height: 1.6; overflow-wrap: anywhere; word-break: break-word; }
         .footerCol a:hover { color: #7de693; }
         .footerWhats { margin-top: 10px; display: inline-flex; align-items: center; justify-content: center; width: fit-content; background: linear-gradient(135deg, #42b35e, #67d982); color: #000 !important; padding: 12px 18px; border-radius: 999px; font-weight: 900; }
-        .footerBottom { border-top: 1px solid #1f3525; padding: 18px 16px 24px; text-align: center; color: #8b949e; font-size: 14px; }
-        @media (max-width: 900px) {
+        .footerBottom { border-top: 1px solid #1f3525; padding: 18px 16px 24px; text-align: center; color: #8b949e; fontemplate-columns: 1fr; padding: 38px 18px 28px; gap: 30px; }
+          .footerBrand { flex-direction: column; align-items: center; text-align: center; }
+          .footerCol { align-items: center; text-align: center; }
+          .footerWhats { width: 100%; max-width: 280px; }
           .header { min-height: auto; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 14px; text-align: left; padding: 16px; }
           .brand { justify-content: flex-start; min-width: auto; width: auto; }
           .logoWrap { width: 72px; height: 72px; }
