@@ -24,7 +24,7 @@ export default function App() {
 
   const products = [
     { name: 'Turbo Sprinter CDI 311/313', text: 'Produto com excelente desempenho, qualidade e garantia.', img: '/turbina1.jpg' },
-    { name: 'Turbina Renault Master 2.5', text: 'Alta performance e durabilidade para veículos utilitários.', img: '/turbina2.jpg' },
+    { name: 'Turbina L200 2.4', text: 'Alta performance e durabilidade para veículos utilitários.', img: '/turbina2.jpg' },
     { name: 'Turbina Hilux 3.0', text: 'Excelente desempenho para linha diesel.', img: '/turbina3.jpg' },
     { name: 'Turbina HR / Kia Bongo', text: 'Peça muito procurada para veículos de trabalho.', img: '/turbina4.jpg' },
   ]
